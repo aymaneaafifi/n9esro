@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  accepted_at: 2024-01-30
+  rejected_at: 2024-01-30
+  user: one
+  team: one
+
+two:
+  accepted_at: 2024-01-30
+  rejected_at: 2024-01-30
+  user: two
+  team: two
