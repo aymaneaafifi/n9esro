@@ -1,15 +1,10 @@
 
-
-
-
-
-
-
 Rails.application.routes.draw do
+  get 'pages/home'
   devise_for :users
 
-  root "post#index"
-  resources "matches" do
-    resouces "terrains", only: [:index,:show,:new,:create]
-  end
+  root to: "pages#home"
+  resources "matches"do
+     resouces "terrains", only: [:index,:show,:new,:create]
+end
 end
