@@ -1,9 +1,4 @@
-
-
-
-
-
-
+# Purpose: Team model
 class Team < ApplicationRecord
   belongs_to :match
   has_many :user_teams, dependent: :destroy
