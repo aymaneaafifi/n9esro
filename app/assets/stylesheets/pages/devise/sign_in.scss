@@ -1,0 +1,27 @@
+#sign_in{
+  .container{
+    display: flex;
+    .sign_in_image{
+      background-image: url(/app/assets/images/background_sign_in.jpeg);
+    }
+    .sign_in_container{
+      background-color: #202c2b;
+    }
+
+    .elements{
+      .icon{
+        width: 20px;
+        height: 30px;
+      }
+      text-align: center;
+      .description{
+        font-size: 22px;
+        font-weight: bold;
+        color: #58ca64;
+      }
+      .content{
+        color: aliceblue;
+      }
+    }
+  }
+}
