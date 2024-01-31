@@ -6,6 +6,7 @@
           <%= image_tag "football_icon.png", class:"icon", alt:"a football image"%>
           <div class="description">Greeting footballer</div>
           <div class="content">Sign in to your account</div>
+          <%= button_to 'Login with Google', user_google_oauth2_omniauth_authorize_path, method: :post, :data => {turbo: "false"}, class: %>
         </div>
       </div>
     </div>
@@ -19,6 +20,7 @@
 
 
 <h2>Log in</h2>
+<%= button_to 'Login with Google', user_google_oauth2_omniauth_authorize_path, method: :post, :data => {turbo: "false"} %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
