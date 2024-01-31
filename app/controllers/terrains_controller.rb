@@ -1,7 +1,7 @@
 
 class TerrainsController < ApplicationController
   # before action
-  before_action :terrain_params
+  # before_action :terrain_params
   before_action :set_terrain, only: %i[show]
 
   # index

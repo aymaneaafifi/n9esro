@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: "pages#home"
-  resources "matches"do
-     resouces "terrains", only: [:index,:show,:new,:create]
-end
+  resources "matches"
+  resources "terrains", only: [:index,:show,:new,:create]
 end

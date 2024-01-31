@@ -4,7 +4,7 @@
 
 class MatchesController < ApplicationController
   # before action
-  before_action :match_params
+  # before_action :match_params
   before_action :set_match, only: %i[show edit]
 
   # index
@@ -14,7 +14,7 @@ class MatchesController < ApplicationController
   # show
   def show
     # ...
-  end      
+  end
   # new
   def new
     @match = Match.new
