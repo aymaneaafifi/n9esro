@@ -1,13 +1,8 @@
 
-
-
-
-
-
-
 Rails.application.routes.draw do
+  get 'pages/home'
   devise_for :users
 
-  root "post#index"
+  root to: "pages#home"
   resources "matches"
 end
