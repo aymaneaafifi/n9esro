@@ -4,7 +4,8 @@
     <nav>
 
     </nav>
-
+    <%# if user signed_in %>
+    <% if user_signed_in? %>
       <a href="#" class="cta"><button>Create Game</button></a>
       <ul class="profile_link">
         <li><a href="" class="avatar">
@@ -20,5 +21,10 @@
             </div>
         </li>
       </ul>
+    <% else %>
+      <%= link_to new_user_session_path, class: "cta" do %>
+        <button>Sign in</button>
+      <% end %>
+    <% end %>
   </header>
 </div>
