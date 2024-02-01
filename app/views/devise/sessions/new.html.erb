@@ -1,7 +1,7 @@
 <div class="container">
   <div id="sign_in" data-controller="display-signup">
     <div class="signin-container">
-      <div class="sign_in_area d-none" data-display-signup-target="signInArea">
+      <div class="sign_in_area " data-display-signup-target="signInArea">
         <div class="sign_in_container">
           <div class="elements">
             <%= image_tag "football_icon.png", class: "icon", alt: "a football image" %>
@@ -59,14 +59,14 @@
         </div>
       </div>
 
-      <div class="sign_up_image" data-display-signup-target="signUpImage">
+      <div class="sign_up_image d-none" data-display-signup-target="signUpImage">
         <%= image_tag "background_sign_up.jpg", class: "sign_in_image", alt: "sign up image showing a top view of field at night with people playing" %>
       </div>
 
-      <div class="sign_in_image d-none" data-display-signup-target="signInImage">
+      <div class="sign_in_image " data-display-signup-target="signInImage">
         <%= image_tag "background_sign_in.jpeg", class: "sign_in_image", alt: "sign up image showing a top view of field at night with people playing" %>
       </div>
-      <div class="sign_up_area" data-display-signup-target="signUpArea">
+      <div class="sign_up_area d-none" data-display-signup-target="signUpArea">
         <div class="sign_in_container">
           <div class="elements">
             <%= image_tag "football_icon.png", class: "icon", alt: "a football image" %>
