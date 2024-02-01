@@ -81,12 +81,13 @@
   }
   button{
     margin-left: 20px;
-    padding: 9px 25px;
+    padding: 15px 25px;
     background-color: rgba(42, 135, 54 , 1);
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
   }
+
   button:hover{
     background-color: rgba(42, 135, 54 , 0.8);
   }
