@@ -16,7 +16,7 @@
                 <li><a href="#" class="element">Notifications</a></li>
                 <li><a href="#" class="element">Messages</a></li>
                 <li><a href="#" class="element">Dashboard</a></li>
-                <li><a href="#" class="logout">Logout</a></li>
+                <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: "logout" %></li>
               </ul>
             </div>
         </li>
