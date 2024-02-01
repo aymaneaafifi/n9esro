@@ -1,8 +1,16 @@
+
+
+#show{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+.search {
+  grid-column-start: 1;
+  grid-column-end: 4;
+    
+}
 .plan {
   border-radius: 16px;
-  box-shadow: 0 30px 30px -25px #58CA64;
   padding: 10px;
-  background-color: #fff;
   color: #697e91;
   max-width: 300px;
 }
@@ -112,5 +120,6 @@
 }
 
 .plan .button:hover, .plan .button:focus {
-  background-color: #4dc95a;
+  background-color: #58CA64;
+}
 }
