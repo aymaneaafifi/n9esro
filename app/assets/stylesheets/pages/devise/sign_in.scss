@@ -185,3 +185,8 @@
 
 
 }
+
+body{
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 32%, rgb(1, 60, 9) 100%,rgb(2, 88, 17) 80%);
+  background-attachment: fixed; /* Ensures the background covers the entire viewport */
+}
