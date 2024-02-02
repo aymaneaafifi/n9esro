@@ -11,11 +11,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body style="background-color: #202c2b">
     <% unless controller.is_a?(Devise::SessionsController) && action_name == 'new' %>
       <%= render "shared/navbar" %>
     <% end %>
 
-    <%= yield %>
+
+
+      <%= yield %>
   </body>
 </html>

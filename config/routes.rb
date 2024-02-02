@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     }
 
   root to: "pages#home"
-  
+
   resources "terrains", only:[:show] do
-    resources "matches", only: [:show]
+    resources "matches", only: [:index,:show,:new,:create]
   end
 end
