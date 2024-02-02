@@ -42,11 +42,6 @@ gem 'omniauth-google-oauth2'
 
 
 gem "omniauth-rails_csrf_protection"
-# Use jquery as the JavaScript librar
-gem 'jquery-rails'
-
-# Use jquery-ui for pretty UI
-gem 'jquery-ui-rails'
 
 
 # Use Redis adapter to run Action Cable in production
