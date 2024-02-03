@@ -2,11 +2,16 @@
 Rails.application.routes.draw do
   devise_for :users,
     controllers: {
-    omniauth_callbacks: 'users/omniauth_callbacks'
+      omniauth_callbacks: 'users/omniauth_callbacks'
     }
 
   root to: "pages#home"
-  resources "terrains", only:[:show] do
-    resources "matches", only: [:index,:show,:new,:create]
+  resources "terrains", only:[:show,:index] do
+    collection do
+      get 'find_terrain_by_address'
+    end
+    resources "matches", only: [:index,:show]
   end
+  resources "matches", only: [:new,:create]
+
 end

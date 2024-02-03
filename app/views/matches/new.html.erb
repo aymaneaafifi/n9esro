@@ -1,0 +1,40 @@
+
+
+
+
+
+
+
+
+
+<div data-controller="matches">
+  <%= form_for @match do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description%>
+
+    <%= f.label :date %>
+    <%= f.datetime_select :date  %>
+
+    <%# for terrains %>
+
+    <label for="match_address">Address</label>
+    <select id="match_address" name="match[address]" data-action="change->matches#loadTerrainNames" data-target="matches.address">
+      <% @terrainAddress.uniq.each do |address| %>
+        <option value="<%= address %>"><%= address %></option>
+      <% end %>
+    </select>
+
+
+    <label for="match_name">name</label>
+      <select id="match_name" name="match[name]" data-target="matches.name">
+
+    </select>
+
+
+
+    <%= f.submit %>
+  <% end %>
+</div>

@@ -18,11 +18,20 @@ class MatchesController < ApplicationController
   # new
   def new
     @match = Match.new
+    @terrains = Terrain.all
+    @terrainAddress = @terrains.map do |terrain|
+      terrain.address
+    end
+
+      @terrainNames = @terrains.map do |terrain|
+        terrain.name
+      end
   end
+
   def create
     @match = Match.new(match_params)
     @match.user = current_user
-    if @macth.save!
+    if @match.save!
       redirect_to match_path(@match)
     else
       render :new, status: :unprocessable_entity
@@ -44,11 +53,16 @@ class MatchesController < ApplicationController
     @match.destroy
     redirect_to article_path(@match), notice: 'match was successfully destroyed.'
   end
+
+
+
+
+
   private
 
   # match params
   def match_params
-    params.require(:match).permit(:title,:description,:date,:terrain_id)
+    params.require(:match).permit(:title,:description,:date,:terrain_id, :address)
   end
   # find match in db using :id
   def set_match
