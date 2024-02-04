@@ -28,6 +28,8 @@ gem "stimulus-rails"
 
 gem "cloudinary"
 
+gem 'open-uri', '~> 0.3.0'
+
 gem "devise"
 
 gem "sassc-rails"

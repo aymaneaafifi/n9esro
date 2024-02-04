@@ -10,7 +10,6 @@ class MatchesController < ApplicationController
   end
   # show
   def show
-    @match = Match.find(params[:id])
     @team1 = @match.team1
     @team2 = @match.team2
   end
@@ -31,6 +30,15 @@ class MatchesController < ApplicationController
   def edit
     # ...
   end
+
+  def join_team
+    @match = Match.find(params[:id])
+    position = params[:position]
+    team = position == 'team1' ? @match.team1 : @match.team2
+    team.users << current_user unless team.users.include?(current_user)
+    render json: { success: true }
+  end
+
   def update
     if @match.update(match_params)
       redirect_to match, notice: 'match was successfully updated.'

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   resources "terrains", only:[:show] do
-    resources "matches", only: [:index,:show,:new,:create]
+    resources "matches", only: [:index,:show,:new,:create] do
+      post 'join_team', on: :member
+    end
   end
 end

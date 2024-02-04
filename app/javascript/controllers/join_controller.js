@@ -1,28 +1,41 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
-// Connects to data-controller="join"
 export default class extends Controller {
-  connect() {
-    console.log("Hello, Stimulus!")
-  }
-  join(event) {
+  static targets = ["joinLink", "button"];
+
+  toggleJoin(event) {
     event.preventDefault();
-    let currentUserName = "<%= current_user.name %>";
-    let playerAvatar = event.target.parentElement.querySelector("img").getAttribute("src");
 
-    this.element.querySelector(".selected-player").textContent = playerName;
-    this.element.querySelector(".selected-avatar").setAttribute("src", playerAvatar);
+    const joinLink = event.currentTarget;
 
-    event.target.textContent = "Cancel";
-    this.hideOtherJoinButtons(event.target.parentElement);
-  }
+    const position = joinLink.dataset.position;
+    let teamPrefix;
+    if (joinLink.dataset.team === "team1") {
+      teamPrefix = "team1";
+    } else if (joinLink.dataset.team === "team2") {
+      teamPrefix = "team2";
+    }
 
-  hideOtherJoinButtons(currentButtonParent) {
-    let otherJoinButtons = Array.from(this.element.querySelectorAll("[data-action='click->join#join']"));
-    otherJoinButtons.forEach(button => {
-      if (button.parentElement !== currentButtonParent) {
-        button.style.display = "none";
+    const pTag = this.element.querySelector(`[data-${position.toLowerCase()}-target="${teamPrefix}-${position.toLowerCase()}"]`);
+    if (joinLink.innerText === "Join") {
+      joinLink.innerText = "Cancel";
+      joinLink.style.color = "yellow";
+      pTag.innerText = currentUserFirstName;
+      this.buttonTarget.classList.remove("d-none");
+    } else {
+      joinLink.innerText = "Join";
+      joinLink.style.color = "";
+      pTag.innerText = "";
+      this.buttonTarget.classList.add("d-none");
+    }
+
+    this.joinLinkTargets.forEach(link => {
+      if (link !== joinLink) {
+        link.hidden = !link.hidden;
       }
     });
   }
+
+  
+
 }

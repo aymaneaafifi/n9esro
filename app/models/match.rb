@@ -1,8 +1,8 @@
 class Match < ApplicationRecord
   belongs_to :terrain
   belongs_to :user
-  has_one :team1, class_name: 'Team', foreign_key: 'match_id'
-  has_one :team2, class_name: 'Team', foreign_key: 'match_id'
+  has_one :team1, -> { where(title: 'team1') }, class_name: 'Team', foreign_key: 'match_id'
+  has_one :team2, -> { where(title: 'team2') }, class_name: 'Team', foreign_key: 'match_id'
 
 
   validates :user_id, uniqueness: { scope: :date, message: "The user already joined the game" }

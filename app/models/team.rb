@@ -3,7 +3,6 @@ class Team < ApplicationRecord
   belongs_to :match
   has_many :user_teams, dependent: :destroy
   has_many :users, through: :user_teams
-
   validate :validate_user_join
   validate :validate_user_count
 

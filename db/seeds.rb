@@ -1,7 +1,24 @@
-ayoub = User.create!(first_name: "ayoub", last_name: "idbaih", password: "ayoub1234", email: "ayoubahhf@gmqil.com", bio: "I am a good player")
-oussama = User.create!(first_name: "oussama", last_name: "raji", password: "ayoub1234", email: "oussama@gmqil.com", bio: "I am a good player")
-aymane = User.create!(first_name: "aymane", last_name: "afifi", password: "aymane1234", email: "aymaneraji@gmqil.com", bio: "I am a good player")
-fadlallah = User.create!(first_name: "fadlallah", last_name: "errami", password: "fadl1234", email: "fadlallah@gmqil.com", bio: "I am a good player")
+require "open-uri"
+
+fadllah_image = URI.open("https://avatars.githubusercontent.com/u/94233481?v=4")
+ayman_image = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1702541409/zcey3ssbq6oewbauwx0t.jpg")
+ayoub_image = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1702540852/i9zuf4phlfeledeh4nvl.jpg")
+oussama_image = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1702409240/bkvj6jcaiuvcbisuifx9.jpg")
+
+ayoub = User.new(first_name: "ayoub", last_name: "idbaih", password: "ayoub1234", email: "ayoubahhf@gmqil.com", bio: "I am a good player")
+oussama = User.new(first_name: "oussama", last_name: "essoufi", password: "ayoub1234", email: "oussama@gmqil.com", bio: "I am a good player")
+aymane = User.new(first_name: "aymane", last_name: "afifi", password: "aymane1234", email: "aymaneraji@gmqil.com", bio: "I am a good player")
+fadlallah = User.new(first_name: "fadlallah", last_name: "errami", password: "fadl1234", email: "fadlallah@gmqil.com", bio: "I am a good player")
+
+ayoub.photo.attach(io: ayoub_image, filename: "ayoub.jpg", content_type: "image/jpg")
+fadlallah.photo.attach(io: fadllah_image, filename: "fadllah.jpg", content_type: "image/jpeg")
+aymane.photo.attach(io: ayman_image, filename: "ayman.jpg", content_type: "image/jpg")
+oussama.photo.attach(io: oussama_image, filename: "oussama.jpg", content_type: "image/jpg")
+
+ayoub.save!
+oussama.save!
+aymane.save!
+fadlallah.save!
 
 terrain1 = Terrain.create!(name: "terrain1", address: "hay salam", price: 100)
 terrain2 = Terrain.create!(name: "terrain2", address: "hay salam", price: 100)
@@ -23,3 +40,4 @@ end
 
 # Associate user with team2
 UserTeam.create!(user: fadlallah, team: team2, position: "GK") # Assign a default position, for example, "GK"
+team2.user_teams << UserTeam.last
