@@ -17,7 +17,9 @@ class MatchesController < ApplicationController
   end
   # new
   def new
+
     @match = Match.new
+    @match.date = Time.current + 1.day
     @terrains = Terrain.all
     @terrainAddress = @terrains.map do |terrain|
       terrain.address
@@ -29,6 +31,8 @@ class MatchesController < ApplicationController
   end
 
   def create
+
+
     @match = Match.new(match_params)
     @match.user = current_user
     if @match.save!

@@ -16,7 +16,9 @@
     <%= f.text_area :description%>
 
     <%= f.label :date %>
-    <%= f.datetime_select :date  %>
+    <%= f.datetime_select :date, { ampm: true, order: [:day, :month, :year, :hour], discard_minute: true, start_year: Time.now.year, end_year: 1.month.from_now.year, start_month: Time.now.month} %>
+
+
 
     <%# for terrains %>
 
