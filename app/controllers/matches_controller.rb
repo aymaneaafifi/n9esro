@@ -1,7 +1,4 @@
 
-
-
-
 class MatchesController < ApplicationController
   # before action
   # before_action :match_params
@@ -13,7 +10,9 @@ class MatchesController < ApplicationController
   end
   # show
   def show
-    # ...
+    @match = Match.find(params[:id])
+    @team1 = @match.team1
+    @team2 = @match.team2
   end
   # new
   def new

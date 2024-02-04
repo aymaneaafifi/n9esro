@@ -1,23 +1,84 @@
-<div id="match">
-  <div class="lobby">
-    <div class="player-lobby" style="background-image:">
-
-    </div>
-    <div class="player-list">
-      <h3>team 1</h3>
-      <%5.times do %>
-      <div class="player-placeholder">
-        <div class="player-info">
-          <div class="player-avatar" style="background-image:"></div>
-          <div class="player-name">player name</div>
-        </div>
-      <button>Join</button>
+<div id="match" data-controller="join">
+    <div class="player-lobby-image" style="background-image: url('<%= image_path('field.jpg') %>');">
+      <div class="goalkeeper">
+        <img src="" alt="" class="avatar">
       </div>
-      <%end%>
-
+      <div class="defense">
+        <img src="" alt="" class="avatar">
+        <img src="" alt="" class="avatar">
+      </div>
+      <div class="midfield">
+        <img src="" alt="" class="avatar">
+      </div>
+      <div class="attack">
+        <img src="" alt="" class="avatar">
+      </div>
+      <%# team 2 %>
+      <div class="attack">
+        <img src="" alt="" class="avatar">
+      </div>
+      <div class="midfield">
+        <img src="" alt="" class="avatar">
+      </div>
+      <div class="defense">
+        <img src="" alt="" class="avatar">
+        <img src="" alt="" class="avatar">
+      </div>
+      <div class="goalkeeper">
+        <img src="" alt="" class="avatar">
+      </div>
     </div>
-  </div>
+    <div class="player-lobby-list">
+      <div class="lobby-container">
+        <h4>team1</h4>
+        <div class="first-team">
 
+          <div>
+            <p data-toggle-target="team1-goalkeeper">ahmed</p>
+            <a href="">Join</a href="">
+          </div>
+          <div >
+            <p data-toggle-target="team1-first-defender">ahmed</p>
+            <a href="">Join</a href="">
+          </div>
+          <div >
+            <p data-toggle-target="team1-second-defender">ahmed</p>
+            <a href="">Join</a href="">
+          </div>
+          <div >
+            <p data-toggle-target="team1-midfielder">ahmed</p>
+            <a href="">Join</a href="">
+          </div>
+          <div >
+            <p data-toggle-target="team1-attacker">ahmed</p>
+            <a href="">Join</a href="">
+          </div>
 
+        </div>
+        <h4>team2</h4>
+        <div class="second-team">
 
+          <div >
+            <p data-toggle-target="team2-goalkeeper">ahmed</p>
+            <a href="">Join</a>
+          </div>
+          <div >
+            <p data-toggle-target="team2-first-defender">ahmed</p>
+            <a href="">Join</a href="">
+          </div>
+          <div >
+            <p data-toggle-target="team2-second-defender">ahmed</p>
+            <a href="">Join</a href="">
+          </div>
+          <div >
+            <p data-toggle-target="team2-midfielder">ahmed</p>
+            <a href="">Join</a href="">
+          </div>
+          <div >
+            <p data-toggle-target="team2-attacker">ahmed</p>
+            <a href="">Join</a href="">
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
