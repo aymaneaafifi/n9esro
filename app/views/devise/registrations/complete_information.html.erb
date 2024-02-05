@@ -1,15 +1,15 @@
 <div id="edit">
   <div class="edit-area">
-    <%= simple_form_for resource, as: resource_name, url: user_registration_path, method: :patch do |f| %>
+    <%= simple_form_for current_user, url: user_registration_path, method: :patch do |f| %>
       <%= f.error_notification %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= render "devise/shared/error_messages", resource: current_user %>
 
       <div class="form-inputs">
 
 
         <div class="circle-container" data-controller="upload">
           <div class="circle" data-upload-target="circle">
-            <%= f.file_field :photo, accept: 'image/*', class: 'upload-input', data: { action: 'change->upload#handleFileChange' }%>
+            <%= f.file_field :photo, accept: 'image/*', class: 'upload-input',required: true, data: { action: 'change->upload#handleFileChange' }%>
             <i class="fas fa-upload upload-icon"></i>
           </div>
         </div>
@@ -45,7 +45,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.submit %>
+        <%= f.submit "Complete",class: "custom-submit-button"%>
       </div>
     <% end %>
   </div>

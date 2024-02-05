@@ -1,6 +1,17 @@
 class ApplicationController < ActionController::Base
   # ...
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :check_photo_presence, unless: :complete_information_action?
+
+  def check_photo_presence
+    if user_signed_in? && current_user.photo.key.nil?
+      redirect_to complete_information_path
+    end
+  end
+  
+  def complete_information_action?
+    controller_name == 'registrations' && action_name == 'complete_information'
+  end
 
   def configure_permitted_parameters
 
