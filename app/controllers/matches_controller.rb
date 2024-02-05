@@ -17,7 +17,6 @@ class MatchesController < ApplicationController
   end
   # new
   def new
-
     @match = Match.new
     @match.date = Time.current + 1.day
     @terrains = Terrain.all
@@ -35,6 +34,12 @@ class MatchesController < ApplicationController
 
     @match = Match.new(match_params)
     @match.user = current_user
+    @match.address = params[:address]
+    @terrain = Terrain.find_by(name: params[:terrain], address: params[:address])
+    @match.terrain = @terrain
+
+    raise
+
     if @match.save!
       redirect_to match_path(@match)
     else
@@ -66,7 +71,7 @@ class MatchesController < ApplicationController
 
   # match params
   def match_params
-    params.require(:match).permit(:title,:description,:date,:terrain_id, :address)
+    params.require(:match).permit(:title, :description, :date)
   end
   # find match in db using :id
   def set_match

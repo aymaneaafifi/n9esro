@@ -8,7 +8,8 @@
 
 
 <div data-controller="matches">
-  <%= form_for @match do |f| %>
+
+  <%= simple_form_for @match do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
 
@@ -16,14 +17,16 @@
     <%= f.text_area :description%>
 
     <%= f.label :date %>
-    <%= f.datetime_select :date, { ampm: true, order: [:day, :month, :year, :hour], discard_minute: true, start_year: Time.now.year, end_year: 1.month.from_now.year, start_month: Time.now.month} %>
-
+    <%= f.input :date,
+                as: :string,
+                input_html: { data: { controller: "datepicker" } }
+    %>
 
 
     <%# for terrains %>
 
     <label for="match_address">Address</label>
-    <select id="match_address" name="match[address]" data-action="change->matches#loadTerrainNames" data-target="matches.address">
+    <select id="match_address" name="address" data-action="change->matches#loadTerrainNames" data-target="matches.address">
       <% @terrainAddress.uniq.each do |address| %>
         <option value="<%= address %>"><%= address %></option>
       <% end %>
@@ -31,7 +34,7 @@
 
 
     <label for="match_name">name</label>
-      <select id="match_name" name="match[name]" data-target="matches.name">
+      <select id="match_name" name="terrain" data-target="matches.name">
 
     </select>
 
