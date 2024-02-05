@@ -1,4 +1,4 @@
-<div id="match" data-controller="join">
+<div id="match" data-controller="join" data-join-id-value='<%= current_user.id %>' data-join-team1-value='<%= @team1.id %>' data-join-team2-value='<%= @team2.id %>'>
     <div class="player-lobby-image" style="background-image: url('<%= image_path('field.jpg') %>');">
       <%# team 1 %>
       <div class="goalkeeper">
@@ -92,7 +92,7 @@
                 </p>
               <% else %>
                 <p data-<%= position.downcase%>-target="team1-<%= position.downcase %>"></p>
-                <a href="#" data-action="click->join#toggleJoin" data-join-target="joinLink" data-position="<%= position %>" data-team="team1"  >Join</a>
+                  <a href="#" data-action="click->join#toggleJoin" data-join-target="joinLink" data-position="<%= position %>" data-team="team1"  >Join</a>
               <% end %>
             </div>
           <% end %>
@@ -113,11 +113,12 @@
             </div>
           <% end %>
         </div>
-        <a href="" class="green-link d-none" data-join-target="button">Confirm</a>
+        <div data-join-target='submit'>
+        </div>
       </div>
     </div>
 </div>
 
 <script>
-  const currentUserFirstName = "<%= current_user.first_name %>";
+  const currentUserFirstName = "<%= current_user.first_name %> <%= current_user.last_name %>";
 </script>
