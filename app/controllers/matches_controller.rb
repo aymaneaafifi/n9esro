@@ -38,10 +38,9 @@ class MatchesController < ApplicationController
     @terrain = Terrain.find_by(name: params[:terrain], address: params[:address])
     @match.terrain = @terrain
 
-    raise
 
     if @match.save!
-      redirect_to match_path(@match)
+      redirect_to matches_path(@match)
     else
       render :new, status: :unprocessable_entity
     end

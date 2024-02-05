@@ -3,43 +3,47 @@
 
 
 
+<div id="create_match">
+  <div data-controller="matches" >
+
+    <%= simple_form_for @match do |f| %>
+
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+
+          <%= f.label :description %>
+          <%= f.text_area :description%>
+
+          <%= f.input :date,
+                      as: :string,
+                      input_html: { data: { controller: "datepicker" } }
+          %>
 
 
 
+          <%# for terrains %>
 
-<div data-controller="matches">
-
-  <%= simple_form_for @match do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-
-    <%= f.label :description %>
-    <%= f.text_area :description%>
-
-    <%= f.label :date %>
-    <%= f.input :date,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } }
-    %>
-
-
-    <%# for terrains %>
-
-    <label for="match_address">Address</label>
-    <select id="match_address" name="address" data-action="change->matches#loadTerrainNames" data-target="matches.address">
-      <% @terrainAddress.uniq.each do |address| %>
-        <option value="<%= address %>"><%= address %></option>
-      <% end %>
-    </select>
-
-
-    <label for="match_name">name</label>
-      <select id="match_name" name="terrain" data-target="matches.name">
-
-    </select>
+            <label for="match_address">Terrain address</label>
+            <select id="match_address" name="address" data-action="change->matches#loadTerrainNames" data-target="matches.address">
+              <% @terrainAddress.uniq.each do |address| %>
+                <option value="<%= address %>"><%= address %></option>
+              <% end %>
+            </select>
 
 
 
-    <%= f.submit %>
-  <% end %>
+            <label for="match_name">Terrain name</label>
+              <select id="match_name" name="terrain" data-target="matches.name">
+
+
+          </select>
+
+
+            <%= f.submit %>
+      </div>
+
+
+    <% end %>
+  </div>
+
 </div>
