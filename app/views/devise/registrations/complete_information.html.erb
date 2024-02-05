@@ -45,23 +45,8 @@
       </div>
 
       <div class="form-actions">
-        <%= f.submit "Confirm", class: "custom-submit-button" %>
+        <%= f.submit %>
       </div>
     <% end %>
-     <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
   </div>
 </div>
-<%# <%= f.input :current_password,
-                    hint: "leave it blank if you don't want to change it",
-                    required: false,%>
-
-        <%# <%= f.input :password_confirmation,
-                    required: false,
-                    input_html: { autocomplete: "new-password" } %>
-
-        <%# unless resource.provider %>
-        <%#   <%= f.input :password,
-                      hint: "leave it blank if you don't want to change it",
-                      required: false,
-                      input_html: { autocomplete: "new-password" } %>
-        <%# <% end %>
