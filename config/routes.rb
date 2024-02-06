@@ -1,4 +1,3 @@
-
 Rails.application.routes.draw do
 
   get '/users/sign_up', to: redirect('/404')  # Redirect to a 404 page or any other desired page
@@ -20,8 +19,8 @@ Rails.application.routes.draw do
     resources "matches", only: [:index,:show] do
       post 'join_team', on: :member
     end
-  end
 
+  end 
   resources "user_team", only: [:create, :update, :destroy]
   resources "matches", only: [:new,:create]
   resources :users, only: [:show, :edit, :update]
