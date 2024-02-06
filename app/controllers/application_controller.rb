@@ -1,17 +1,17 @@
 class ApplicationController < ActionController::Base
   # ...
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :check_firstname_presence, unless: -> { complete_information_action? || action_name == 'update' }
+  # before_action :check_firstname_presence, unless: -> { complete_information_action? || action_name == 'update' }
 
-  def check_firstname_presence
-    if user_signed_in? && current_user.first_name.nil?
-      redirect_to complete_information_path
-    end
-  end
+  # def check_firstname_presence
+  #   if user_signed_in? && current_user.first_name.nil?
+  #     redirect_to complete_information_path
+  #   end
+  # end
 
-  def complete_information_action?
-    controller_name == 'registrations' && action_name == 'complete_information'
-  end
+  # def complete_information_action?
+  #   controller_name == 'registrations' && action_name == 'complete_information'
+  # end
 
   def configure_permitted_parameters
 
