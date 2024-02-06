@@ -9,7 +9,7 @@
 
         <div class="circle-container" data-controller="upload">
           <div class="circle" data-upload-target="circle">
-            <%= f.file_field :photo, accept: 'image/*', class: 'upload-input',required: true, data: { action: 'change->upload#handleFileChange' }%>
+            <%= f.file_field :photo, accept: 'image/*', class: 'upload-input', data: { action: 'change->upload#handleFileChange' }%>
             <i class="fas fa-upload upload-icon"></i>
           </div>
         </div>
