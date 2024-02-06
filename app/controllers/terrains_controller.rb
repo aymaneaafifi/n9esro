@@ -6,7 +6,7 @@ class TerrainsController < ApplicationController
 
   # index
   def index
-    @terrain = Terrain.all
+    @terrains = Terrain.all
   end
   # show
   def show
@@ -34,7 +34,7 @@ class TerrainsController < ApplicationController
   end
   # find match in db using :id
   def set_terrain
-    @terain = Terrain.find(params[:id])
+    @terrain = Terrain.find(params[:id])
   end
 
 end

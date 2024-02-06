@@ -48,7 +48,7 @@
         <%= f.submit "Confirm", class: "custom-submit-button" %>
       </div>
     <% end %>
-     <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
   </div>
 </div>
 <%# <%= f.input :current_password,
