@@ -1,4 +1,3 @@
-
 Rails.application.routes.draw do
   get '/users/sign_up', to: redirect('/404')  # Redirect to a 404 page or any other desired page
 
@@ -11,7 +10,7 @@ Rails.application.routes.draw do
     get '/complete_information', to: 'registrations#complete_information'
   end
   root to: "pages#home"
-  resources "terrains", only:[:show] do
+  resources "terrains" do
     resources "matches", only: [:index,:show,:new,:create] do
       post 'join_team', on: :member
     end
