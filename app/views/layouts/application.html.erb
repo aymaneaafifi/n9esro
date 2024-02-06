@@ -16,12 +16,13 @@
   </head>
 
   <body style="background-color: #202c2b">
-    <% unless controller.is_a?(Devise::SessionsController) && action_name == 'new' %>
+    <% unless controller.is_a?(Devise::SessionsController) && action_name == 'new' || controller.is_a?(RegistrationsController) && action_name == 'complete_information'%>
       <%= render "shared/navbar" %>
     <% end %>
 
+      <div class="container">
 
-
-      <%= yield %>
+        <%= yield %>
+      </div>
   </body>
 </html>
