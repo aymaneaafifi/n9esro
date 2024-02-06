@@ -83,6 +83,10 @@
         cursor: pointer;
         border-radius: 12px;
       }
+      .custom-submit-button:hover {
+        background-color: #4CAF50; /* Green */
+        color: white;
+      }
     }
 
   }
