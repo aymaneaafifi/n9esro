@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     resources "matches", only: [:index,:show]
   end
   resources "matches", only: [:new,:create]
+  resources :users, only: [:show, :edit, :update]
 
 end

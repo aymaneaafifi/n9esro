@@ -6,6 +6,7 @@ class MatchesController < ApplicationController
   # before action
   # before_action :match_params
   before_action :set_match, only: %i[show edit]
+  before_action :terrainNamesAddresses, only: %i[create new]
 
   # index
   def index
@@ -19,19 +20,10 @@ class MatchesController < ApplicationController
   def new
     @match = Match.new
     @match.date = Time.current + 1.day
-    @terrains = Terrain.all
-    @terrainAddress = @terrains.map do |terrain|
-      terrain.address
-    end
 
-      @terrainNames = @terrains.map do |terrain|
-        terrain.name
-      end
   end
 
   def create
-
-
     @match = Match.new(match_params)
     @match.user = current_user
     @match.address = params[:address]
@@ -39,9 +31,11 @@ class MatchesController < ApplicationController
     @match.terrain = @terrain
 
 
-    if @match.save!
+
+    if @match.save
       redirect_to matches_path(@match)
     else
+
       render :new, status: :unprocessable_entity
     end
   end
@@ -75,6 +69,15 @@ class MatchesController < ApplicationController
   # find match in db using :id
   def set_match
     @match = Match.find(params[:id])
+  end
+  def terrainNamesAddresses
+    @terrains = Terrain.all
+    @terrainAddress = @terrains.map do |terrain|
+      terrain.address
+    end
+    @terrainNames = @terrains.map do |terrain|
+      terrain.name
+    end
   end
 
 end

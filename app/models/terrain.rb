@@ -3,6 +3,6 @@ class Terrain < ApplicationRecord
   validates :name, uniqueness: { scope: :address, message: "the name and address must be unique" }
   validates :price , comparison: { greater_than: 0 }
   validates :name , length: {minimum: 3, message: "short name"}
-  validates :name , length: {maximum: 12, message: "long name"}
+  validates :name , length: {maximum: 25, message: "long name"}
   validates :address , length: {minimum: 1, message: "short adrress"}
 end

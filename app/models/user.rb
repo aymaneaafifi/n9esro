@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :user_teams, dependent: :destroy
   has_many :teams , through: :user_teams
+  validates :first_name , presence: true
+  validates :last_name , presence: true
 
   def self.from_google(u)
     create_with(uid: u[:uid], provider: 'google',

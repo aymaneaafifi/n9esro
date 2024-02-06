@@ -8,16 +8,26 @@
 
     <%= simple_form_for @match do |f| %>
 
+
+
+
+
           <%= f.label :title %>
-          <%= f.text_field :title %>
+          <%= f.text_field :title, error: false  %>
+          <%= f.error :title, class: "error" %>
+
 
           <%= f.label :description %>
-          <%= f.text_area :description%>
+          <%= f.text_area :description, error: false %>
+          <%= f.error :description, class: "error" %>
 
           <%= f.input :date,
                       as: :string,
                       input_html: { data: { controller: "datepicker" } }
+
           %>
+          <%= f.error :date, class: "error" %>
+
 
 
 
@@ -29,11 +39,14 @@
                 <option value="<%= address %>"><%= address %></option>
               <% end %>
             </select>
+            <%= f.error :address, class: "error" %>
 
 
 
             <label for="match_name">Terrain name</label>
               <select id="match_name" name="terrain" data-target="matches.name">
+            <%= f.error :terrain, class: "error" %>
+
 
 
           </select>

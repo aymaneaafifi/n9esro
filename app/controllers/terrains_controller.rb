@@ -6,7 +6,7 @@ class TerrainsController < ApplicationController
 
   # index
   def index
-    @terrain = Terrain.all
+    @terrains = Terrain.all
   end
   # show
   def show

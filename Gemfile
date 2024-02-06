@@ -42,6 +42,8 @@ gem 'omniauth-google-oauth2'
 
 
 gem "omniauth-rails_csrf_protection"
+# faker
+gem "faker"
 
 
 # Use Redis adapter to run Action Cable in production
