@@ -20,9 +20,9 @@ Rails.application.routes.draw do
       post 'join_team', on: :member
     end
 
-  end 
+  end
   resources "user_team", only: [:create, :update, :destroy]
   resources "matches", only: [:new,:create]
-  resources :users, only: [:show, :edit, :update]
+  resources "users", only: [:show, :edit, :update]
 
 end
