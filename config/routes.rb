@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get '/complete_information', to: 'registrations#complete_information'
+    get 'complete_information', to: 'registrations#complete_information'
   end
   root to: "pages#home"
   resources "terrains" do
