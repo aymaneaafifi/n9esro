@@ -9,6 +9,13 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def update
+    super do |resource|
+      resource.errors.add(:first_name, :blank, message: "can't be blank") if params[:user][:first_name].empty?
+      resource.errors.add(:last_name, :blank, message: "can't be blank") if params[:user][:last_name].empty?
+    end
+  end
+
 
   protected
 
