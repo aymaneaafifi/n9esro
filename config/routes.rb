@@ -17,5 +17,4 @@ Rails.application.routes.draw do
   end
 
   resources "user_team", only: [:create, :update, :destroy]
-
 end
