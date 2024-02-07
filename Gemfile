@@ -43,6 +43,8 @@ gem "simple_form"
 gem "autoprefixer-rails"
 
 gem 'omniauth-google-oauth2'
+# for search
+gem "pg_search"
 
 
 gem "omniauth-rails_csrf_protection"

@@ -6,7 +6,8 @@ class TerrainsController < ApplicationController
 
   # index
   def index
-    @terrains = Terrain.all
+    q = params[:q]
+    @terrains = Terrain.search_terrain(q)
   end
   # show
   def show

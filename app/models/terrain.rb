@@ -1,4 +1,17 @@
+
+
+
+
+
 class Terrain < ApplicationRecord
+  # for searching
+  include PgSearch::Model
+  pg_search_scope :search_terrain,
+  against: [ :name, :price, :address, :desc ],
+  using: {
+    tsearch: { prefix: true } # <-- now `superman batm` will return something!
+  }
+  #
   has_many :matches
   validates :name, uniqueness: { scope: :address, message: "the name and address must be unique" }
   validates :price , comparison: { greater_than: 0 }
