@@ -12,7 +12,7 @@ class UserTeamController < ApplicationController
     @user_team.team = @team
     @user_team.position = params[:position]
     @user_team.save!
-    redirect_to terrain_match_path(@match.terrain, @match)
+    # redirect_to terrain_match_path(@match.terrain, @match)
   end
 
   private
