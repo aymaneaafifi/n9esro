@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'registrations'
+
   }
 
   devise_scope :user do
@@ -20,9 +21,8 @@ Rails.application.routes.draw do
       post 'join_team', on: :member
     end
 
-  end 
+  end
   resources "user_team", only: [:create, :update, :destroy]
   resources "matches", only: [:new,:create]
-  resources :users, only: [:show, :edit, :update]
-
+  resources "users", only: [:show, :edit, :update]
 end
