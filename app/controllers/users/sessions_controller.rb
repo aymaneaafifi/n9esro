@@ -31,13 +31,17 @@ class Users::SessionsController < Devise::SessionsController
   def create
 
     userByEmail = User.find_by(email: params[:user][:email])
+
     if userByEmail
-      cookies.encrypted[:user_id] = id
-      redirect_to root_path
+      cookies.encrypted[:user_id] = userByEmail.id
+      unless userByEmail.valid_password?(params[:user][:password])
+        redirect_to new_user_session_path, notice: "invalid password"
+          return
+      end
+      super
     else
       redirect_to new_user_session_path, notice: "invalid email"
     end
-    super
   end
 
   def destroy
