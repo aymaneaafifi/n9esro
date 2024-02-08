@@ -7,17 +7,22 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+   
+
+
 
     <%= javascript_importmap_tags %>
   </head>
 
   <body style="background-color: #202c2b">
-    <% unless controller.is_a?(Devise::SessionsController) && action_name == 'new' %>
+    <% unless controller.is_a?(Devise::SessionsController) && action_name == 'new' || controller.is_a?(RegistrationsController) && action_name == 'complete_information'%>
       <%= render "shared/navbar" %>
     <% end %>
 
+      <div class="container">
 
-
-      <%= yield %>
+        <%= yield %>
+      </div>
   </body>
 </html>

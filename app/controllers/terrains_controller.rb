@@ -6,7 +6,8 @@ class TerrainsController < ApplicationController
 
   # index
   def index
-    @terrain = Terrain.all
+    q = params[:q]
+    @terrains = Terrain.search_terrain(q)
   end
   # show
   def show
@@ -26,6 +27,15 @@ class TerrainsController < ApplicationController
     end
   end
 
+  # find terraing using address
+  def find_terrain_by_address
+    address = params[:address]
+    @terrain_names = Terrain.where(address: address).pluck(:name)
+    render json: { terrain_names: @terrain_names }
+  end
+
+
+
   private
 
   # match params
@@ -34,7 +44,7 @@ class TerrainsController < ApplicationController
   end
   # find match in db using :id
   def set_terrain
-    @terain = Terrain.find(params[:id])
+    @terrain = Terrain.find(params[:id])
   end
 
 end

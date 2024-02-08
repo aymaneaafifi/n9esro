@@ -1,0 +1,35 @@
+#terrain  {
+  *{
+    border: red 1px solid;
+  }
+  .terrain-container{
+  min-width: 327px;
+  margin: 10px auto;
+  background-color: #202c2b;
+    h2{
+      margin-left: 5px;
+      color: #2A8736;
+    }
+    p{
+      margin-left: 5px;
+      color: white;
+    }
+    .terrain {
+      max-height: 600px;
+
+      .terrain-image {
+        margin-top: 10px;
+        width: 100%;
+        height: 397px;
+        img {
+          margin-top: 10px;
+          margin-left: 70px;
+          width: 80%;
+          height: auto;
+        }
+      }
+    }
+
+}
+
+}

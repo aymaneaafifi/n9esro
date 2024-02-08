@@ -8,6 +8,9 @@ gem "rails", "~> 7.1.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem 'pgreset'
+
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -24,7 +27,11 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
+# gem "jbuilder"
+
+gem "cloudinary"
+
+gem 'open-uri', '~> 0.3.0'
 
 gem "devise"
 
@@ -39,9 +46,13 @@ gem "simple_form"
 gem "autoprefixer-rails"
 
 gem 'omniauth-google-oauth2'
+# for search
+gem "pg_search"
 
 
 gem "omniauth-rails_csrf_protection"
+# faker
+gem "faker"
 
 
 # Use Redis adapter to run Action Cable in production

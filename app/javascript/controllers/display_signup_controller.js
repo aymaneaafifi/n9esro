@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ["signUpArea", "signInArea", "signUpImage", "signInImage"];
 
   connect() {
-    console.log("Hello, Stimulus!");
+    // console.log("Hello, Stimulus!");
   }
   toggleSignup(event) {
     event.preventDefault();

@@ -1,43 +1,68 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div id="edit">
+  <div class="edit-area">
+    <%= simple_form_for resource, as: resource_name, url: user_registration_path, method: :patch do |f| %>
+      <%= f.error_notification %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="form-inputs">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <div class="circle-container" data-controller="upload">
+          <div class="circle" data-upload-target="circle">
+            <%= f.file_field :photo, accept: 'image/*', class: 'upload-input', data: { action: 'change->upload#handleFileChange' }%>
+            <i class="fas fa-upload upload-icon"></i>
+          </div>
+        </div>
+        <div class="group">
+          <%= f.input :email,
+            required: true, autofocus: true,
+            input_html: { autocomplete: "email"},
+            wrapper_html: { class: "inline" }
+          %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+          <%= f.input :first_name,
+                              required: true,
+                              presence: true,
+                              autofocus: true,
+                              input_html: { autocomplete: "First name" },
+                              wrapper_html: { class: "inline" } %>
+          <%= f.input :last_name,
+                              required: true,
+                              autofocus: true,
+                              input_html: { autocomplete: "last name" },
+                              wrapper_html: { class: "inline" } %>
+          <%= f.input :bio,
+                              required: false,
+                              autofocus: true,
+                              input_html: { autocomplete: "bio" },
+                              wrapper_html: { class: "inline" }%>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+
+
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "Confirm", class: "custom-submit-button" %>
+      </div>
     <% end %>
+     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
   </div>
+</div>
+<%# <%= f.input :current_password,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,%>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <%# <%= f.input :password_confirmation,
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+        <%# unless resource.provider %>
+        <%#   <%= f.input :password,
+                      hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+        <%# <% end %>

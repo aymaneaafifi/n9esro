@@ -1,0 +1,105 @@
+
+
+<div id="show">
+ <div class="header__wrapper" data-controller="users">
+      <header></header>
+
+      <div class="cols__container">
+        <div class="left__col">
+          <div class="img__container">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.-qBxge27DGxizFWrAuMq_wHaJ4&pid=Api&P=0&h=180" alt="Ayoub idbaih" />
+            <span></span>
+          </div>
+          <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+          <p>Football player</p>
+          <p>aayoub@example.com</p>
+        <br>
+          <h1 style="color: white;">Matches History</h1>
+          <ul class="about">
+            <li><span>27</span>Played </li>
+            <li><span>7</span>Cancelled </li>
+            <li><span>2</span>Pending </li>
+
+          </ul>
+
+          <div class="content">
+            <p>
+                With a passion for the sport and a determination to learn and grow, Alex approaches each training session with eagerness and a willingness to absorb new skills.
+            </p>
+
+            <ul>
+              <li><i class="fab fa-twitter" style="color: white;"></i></li>
+              <i class="fab fa-pinterest " style="color: white;"></i>
+              <i class="fab fa-facebook " style="color: white;"></i>
+
+            </ul>
+          </div>
+        </div>
+        <div class="right__col">
+          <nav>
+          <button>Connect</button>
+            <ul>
+              <li><button data-action="click->users#toggle">Match Joined</button></li>
+              <li> <button data-action="click->users#toggle1">Match Created</button></li>
+            </ul>
+          </nav>
+            <div class="container mt-5" id="content1" data-users-target="content1">
+                <div class="card" style="background-color: transparent;">
+                    <div class="card-header" style="background-color: #58CA64; color: white;">
+                        <div class="row font-weight-bold">
+                            <div class="col">Pitches</div>
+                            <div class="col">Date</div>
+                            <div class="col">Status</div>
+                        </div>
+                    </div>
+                    <%# this card %>
+                    <% @teams.each do |team| %>
+                    <div class="card-header" style="color: white;">
+                        <div class="row">
+                            <div class="col"><a href="#"><%= team.match.title %></a></div>
+                            <div class="col"><%= team.match.date %></div>
+                            <div class="col">
+                                Scheduled
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                    <%# this card %>
+                </div>
+            </div>
+            <div class="hidden mt-5" id="content" data-users-target="content" >
+
+              <div class="card" style="background-color: transparent;">
+
+                  <div class="card-header" style="background-color: #58CA64; color: white;">
+
+                      <div class="row font-weight-bold">
+                          <div class="col">Pitches</div>
+                          <div class="col">Date</div>
+                          <div class="col">Status</div>
+                      </div>
+                  </div>
+                  <%# this card %>
+                  <% @matches.each do |match| %>
+                  <div class="card-header" style="color: white;">
+                      <div class="row">
+                        <div class="col"><a href="#"><%= match.address %></a></div>
+                          <div class="col"><%= match.date %></div>
+                          <div class="col">
+                            <% if match.date < DateTime.now %>
+                              played
+                            <% else %>
+                              ba9i
+                            <% end %>
+
+                          </div>
+                      </div>
+                  </div>
+                  <% end %>
+                  <%# this card %>
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+</div>

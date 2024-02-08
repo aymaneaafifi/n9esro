@@ -1,11 +1,9 @@
 
-
-
-
 class MatchesController < ApplicationController
   # before action
   # before_action :match_params
   before_action :set_match, only: %i[show edit]
+  before_action :terrainNamesAddresses, only: %i[create new]
 
   # index
   def index
@@ -13,18 +11,29 @@ class MatchesController < ApplicationController
   end
   # show
   def show
-    # ...
+    @team1 = @match.team1
+    @team2 = @match.team2
   end
   # new
   def new
     @match = Match.new
+    @match.date = Time.current + 1.day
+
   end
+
   def create
     @match = Match.new(match_params)
     @match.user = current_user
-    if @macth.save!
-      redirect_to match_path(@match)
+    @match.address = params[:address]
+    @terrain = Terrain.find_by(name: params[:terrain], address: params[:address])
+    @match.terrain = @terrain
+
+
+
+    if @match.save
+      redirect_to matches_path(@match)
     else
+
       render :new, status: :unprocessable_entity
     end
   end
@@ -32,6 +41,15 @@ class MatchesController < ApplicationController
   def edit
     # ...
   end
+
+  def join_team
+    @match = Match.find(params[:id])
+    position = params[:position]
+    team = position == 'team1' ? @match.team1 : @match.team2
+    team.users << current_user unless team.users.include?(current_user)
+    render json: { success: true }
+  end
+
   def update
     if @match.update(match_params)
       redirect_to match, notice: 'match was successfully updated.'
@@ -44,15 +62,29 @@ class MatchesController < ApplicationController
     @match.destroy
     redirect_to article_path(@match), notice: 'match was successfully destroyed.'
   end
+
+
+
+
+
   private
 
   # match params
   def match_params
-    params.require(:match).permit(:title,:description,:date,:terrain_id)
+    params.require(:match).permit(:title, :description, :date)
   end
   # find match in db using :id
   def set_match
     @match = Match.find(params[:id])
+  end
+  def terrainNamesAddresses
+    @terrains = Terrain.all
+    @terrainAddress = @terrains.map do |terrain|
+      terrain.address
+    end
+    @terrainNames = @terrains.map do |terrain|
+      terrain.name
+    end
   end
 
 end
