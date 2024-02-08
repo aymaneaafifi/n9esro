@@ -2,6 +2,8 @@
 class TerrainsController < ApplicationController
   # before action
   # before_action :terrain_params
+  skip_before_action :authenticate_user!, only: :index
+
   before_action :set_terrain, only: %i[show]
 
   # index

@@ -53,6 +53,9 @@ gem "pg_search"
 gem "omniauth-rails_csrf_protection"
 # faker
 gem "faker"
+# pundit for autorization
+gem "pundit"
+
 
 
 # Use Redis adapter to run Action Cable in production
