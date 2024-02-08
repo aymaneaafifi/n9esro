@@ -3,10 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="users"
 export default class extends Controller {
   static targets = ["content1","content"]
-  connect() {
-    console.log(this.contentTarget)
-    console.log(this.content1Target)
-  }
+  connect() {}
   toggle() {
     this.content1Target.classList.remove("hidden");
     this.contentTarget.classList.add("hidden");
