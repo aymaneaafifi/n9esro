@@ -9,59 +9,59 @@
 
 
 /* Style pour le formulaire */
-form {
-  max-width: 1000px; // Ajustez la largeur maximale selon vos besoins
-  width: 150%;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column; // Les éléments à l'intérieur du formulaire seront alignés verticalement
-  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-      inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-      0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-      0px 0px 180px 0px #17ff36;
-    transform: translateY(-2px);
-  /* Style pour les étiquettes */
-  label {
-    margin-bottom: 5px;
-    color: white;
-  }
-
-  /* Style pour les champs de texte et zones de texte */
-  input[type="text"],
-  textarea,
-  select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-  }
-
-  /* Style pour le bouton de soumission */
-  input[type="submit"] {
-    background-color: #39a33c;
-    color: #fff;
-    padding: 10px;
-    border: none;
+  form {
+    max-width: 1000px; // Ajustez la largeur maximale selon vos besoins
+    width: 150%;
+    padding: 20px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    cursor: pointer;
-    &:hover{
-    background-color: #4caf50;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; // Les éléments à l'intérieur du formulaire seront alignés verticalement
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+        0px 0px 180px 0px #17ff36;
+      transform: translateY(-2px);
+    /* Style pour les étiquettes */
+    label {
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    /* Style pour les champs de texte et zones de texte */
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    /* Style pour le bouton de soumission */
+    input[type="submit"] {
+      background-color: #39a33c;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover{
+      background-color: #4caf50;
+      }
+    }
+
+    /* Style pour les messages d'erreur, si nécessaire */
+    .error-message {
+      color: #ff0000;
+      margin-top: 5px;
     }
   }
-
-  /* Style pour les messages d'erreur, si nécessaire */
-  .error-message {
-    color: #ff0000;
-    margin-top: 5px;
+  input[type="text"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 2px solid #4caf50;
+    outline: none; /* Supprime la bordure par défaut sur le focus pour éviter le clignotement */
   }
-}
-input[type="text"]:focus,
-textarea:focus,
-select:focus {
-  border: 2px solid #4caf50;
-  outline: none; /* Supprime la bordure par défaut sur le focus pour éviter le clignotement */
-}
 }

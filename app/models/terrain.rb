@@ -4,6 +4,8 @@
 
 
 class Terrain < ApplicationRecord
+  has_one_attached :photo
+
   # for searching
   include PgSearch::Model
   pg_search_scope :search_terrain,
