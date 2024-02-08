@@ -6,7 +6,8 @@ class TerrainsController < ApplicationController
 
   # index
   def index
-    @terrains = Terrain.all
+    q = params[:q]
+    @terrains = Terrain.search_terrain(q)
   end
   # show
   def show
@@ -25,6 +26,15 @@ class TerrainsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  # find terraing using address
+  def find_terrain_by_address
+    address = params[:address]
+    @terrain_names = Terrain.where(address: address).pluck(:name)
+    render json: { terrain_names: @terrain_names }
+  end
+
+
 
   private
 

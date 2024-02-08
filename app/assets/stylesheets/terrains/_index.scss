@@ -12,7 +12,8 @@
   border-radius: 16px;
   padding: 10px;
   color: #697e91;
-  max-width: 300px;
+  margin-top: 100px;
+  max-width: 400px;
 }
 
 .plan strong {
@@ -122,6 +123,8 @@
 .plan .button:hover, .plan .button:focus {
   background-color: #58CA64;
 }
+
 }
-
-
+.error {
+  color: red;
+}

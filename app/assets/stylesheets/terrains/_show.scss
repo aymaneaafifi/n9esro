@@ -1,6 +1,9 @@
 #terrain  {
+  *{
+    border: red 1px solid;
+  }
   .terrain-container{
-  max-width: 800px;
+  min-width: 327px;
   margin: 10px auto;
   background-color: #202c2b;
     h2{
@@ -30,4 +33,3 @@
 }
 
 }
-

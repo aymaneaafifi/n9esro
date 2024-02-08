@@ -10,7 +10,11 @@
       <ul class="profile_link">
         <li>
         <a href="" class="avatar">
-         <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+          <% if current_user.photo.present? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+          <% else %>
+            <%= image_tag "football_icon.png", class: "avatar" %>
+          <% end %>
         </a>
             <div class="sub-menu">
               <ul class="nav_links">

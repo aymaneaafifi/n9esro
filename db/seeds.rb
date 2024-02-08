@@ -1,3 +1,9 @@
+
+require "faker"
+
+Terrain.destroy_all
+Match.destroy_all
+
 require "open-uri"
 
 fadllah_image = URI.open("https://avatars.githubusercontent.com/u/94233481?v=4")
@@ -24,6 +30,17 @@ terrain1 = Terrain.create!(name: "terrain1", address: "hay salam", price: 100)
 terrain2 = Terrain.create!(name: "terrain2", address: "hay salam", price: 100)
 
 match1 = Match.create!(title: "match1", description: "matchkkjkjkj1", date: "2021-10-10", terrain: terrain1, user: oussama)
+
+
+20.times do
+  Terrain.create!(
+    name: Faker::Name.unique.name,
+    address: Faker::Address.full_address,
+    desc: Faker::Quote.matz,
+    price: rand(10..500)
+  )
+end
+
 
 team1 = Team.create!(title: "team1", match: match1)
 team2 = Team.create!(title: "team2", match: match1)
