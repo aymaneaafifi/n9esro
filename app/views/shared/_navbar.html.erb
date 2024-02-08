@@ -1,0 +1,31 @@
+<div id="navbar">
+  <header >
+    <%= image_tag "logo.png", class: "logo", alt: "the logo of n9asro" %>
+    <nav>
+
+    </nav>
+    <%# if user signed_in %>
+    <% if user_signed_in? %>
+      <%# <a href="#" class="cta"><button>Create Game</button></a> %>
+      <ul class="profile_link">
+        <li>
+        <a href="" class="avatar">
+         <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+        </a>
+            <div class="sub-menu">
+              <ul class="nav_links">
+                <li><a href="#" class="element">Notifications</a></li>
+                <li><a href="#" class="element">Messages</a></li>
+                <li><a href="#" class="element">Dashboard</a></li>
+                <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: "logout" %></li>
+              </ul>
+            </div>
+        </li>
+      </ul>
+    <% else %>
+      <%= link_to new_user_session_path, class: "cta" do %>
+        <button>Sign in</button>
+      <% end %>
+    <% end %>
+  </header>
+</div>

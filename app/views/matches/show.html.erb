@@ -1,0 +1,124 @@
+<div id="match" data-controller="join" data-join-id-value='<%= current_user.id %>' data-join-team1-value='<%= @team1.id %>' data-join-team2-value='<%= @team2.id %>'>
+    <div class="player-lobby-image" style="background-image: url('<%= image_path('field.jpg') %>');">
+      <%# team 1 %>
+      <div class="goalkeeper">
+      <% if @team1.user_teams.exists?(position: "GK") %>
+          <% player = @team1.user_teams.find_by(position: "GK").user %>
+          <%= cl_image_tag player.photo.key, class: "avatar" %>
+        <% else %>
+          <div class="avatar"></div>
+        <% end %>
+    </div>
+      <div class="defense">
+        <% if @team1.user_teams.exists?(position: "DF1") %>
+          <% player = @team1.user_teams.find_by(position: "DF1").user %>
+          <%= cl_image_tag player.photo.key, class: "avatar" %>
+        <% else %>
+          <div class="avatar"></div>
+        <% end %>
+       <% if @team1.user_teams.exists?(position: "DF2") %>
+          <% player = @team1.user_teams.find_by(position: "DF2").user %>
+          <%= cl_image_tag player.photo.key, class: "avatar" %>
+        <% else %>
+          <div class="avatar"></div>
+        <% end %>
+      </div>
+      <div class="midfield">
+        <% if @team1.user_teams.exists?(position: "MD") %>
+          <% player = @team1.user_teams.find_by(position: "MD").user %>
+          <%= cl_image_tag player.photo.key, class: "avatar" %>
+        <% else %>
+          <div class="avatar"></div>
+        <% end %>
+      </div>
+      <div class="attack">
+        <% if @team1.user_teams.exists?(position: "ATK") %>
+          <% player = @team1.user_teams.find_by(position: "MD").user %>
+          <%= cl_image_tag player.photo.key, class: "avatar" %>
+        <% else %>
+          <div class="avatar"></div>
+        <% end %>
+        </div>
+      <%# team 2 %>
+      <div class="attack">
+        <% if @team2.user_teams.exists?(position: "ATK") %>
+          <% player = @team2.user_teams.find_by(position: "ATK").user %>
+          <%= cl_image_tag player.photo.key, class: "avatar" %>
+        <% else %>
+          <div class="avatar"></div>
+        <% end %>
+        </div>
+      <div class="midfield">
+        <% if @team2.user_teams.exists?(position: "MD") %>
+          <% player = @team2.user_teams.find_by(position: "MD").user %>
+          <%= cl_image_tag player.photo.key, class: "avatar" %>
+        <% else %>
+          <div class="avatar"></div>
+        <% end %>
+      </div>
+      <div class="defense">
+        <% if @team2.user_teams.exists?(position: "DF1") %>
+          <% player = @team2.user_teams.find_by(position: "DF1").user %>
+          <%= cl_image_tag player.photo.key, class: "avatar" %>
+        <% else %>
+          <div class="avatar"></div>
+        <% end %>
+        <% if @team2.user_teams.exists?(position: "DF2") %>
+          <% player = @team2.user_teams.find_by(position: "DF2").user %>
+          <%= cl_image_tag player.photo.key, class: "avatar" %>
+        <% else %>
+          <div class="avatar"></div>
+        <% end %>
+      </div>
+      <div class="goalkeeper">
+        <% if @team1.user_teams.exists?(position: "GK") %>
+          <% player = @team2.user_teams.find_by(position: "GK").user %>
+          <%= cl_image_tag player.photo.key, class: "avatar" %>
+        <% else %>
+          <div class="avatar"></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="player-lobby-list">
+      <div class="lobby-container">
+        <h4>team1</h4>
+
+        <div class="first-team">
+          <% ["GK", "DF1", "DF2", "MD", "ATK"].each do |position| %>
+            <div>
+              <% if @team1.user_teams.exists?(position: position) %>
+                <p >
+                  <%= @team1.user_teams.find_by(position: position).user.first_name %> <%= @team1.user_teams.find_by(position: position).user.last_name %>
+                </p>
+              <% else %>
+                <p data-<%= position.downcase%>-target="team1-<%= position.downcase %>"></p>
+                  <a href="#" data-action="click->join#toggleJoin" data-join-target="joinLink" data-position="<%= position %>" data-team="team1"  >Join</a>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <h4>team2</h4>
+        <div class="second-team">
+          <% ["GK", "DF1", "DF2", "MD", "ATK"].each do |position| %>
+            <div>
+              <% if @team2.user_teams.exists?(position: position) %>
+                <p>
+                  <%= @team2.user_teams.find_by(position: position).user.first_name %> <%= @team2.user_teams.find_by(position: position).user.last_name %>
+                </p>
+              <% else %>
+                <p data-<%= position.downcase%>-target="team2-<%= position.downcase %>"></p>
+                <a href="#" data-action="click->join#toggleJoin" data-join-target="joinLink" data-position="<%= position %>" data-team="team2">Join</a>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div data-join-target='submit'>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+  const currentUserFirstName = "<%= current_user.first_name %> <%= current_user.last_name %>";
+</script>

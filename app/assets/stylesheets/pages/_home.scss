@@ -1,0 +1,341 @@
+#home {
+
+  .slogan {
+    color: white;
+    font-size: xx-large;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+  }
+
+  //h2
+  .section-title {
+    padding-top: 30px;
+    text-align: center;
+    display: block;
+    color: whitesmoke;
+    margin-bottom: 0px;
+  }
+
+  //////animation card
+  .card {
+    background: rgba(255, 255, 255, .05);
+    width: 290px;
+    height: 450px;
+    transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin-right: 40px;
+  }
+
+  .img-span {
+    color: white;
+    text-align: center;
+    display: block;
+    font-size: 13px;
+  }
+
+  .card img {
+
+    width: 95%;
+    height: 220px;
+
+    background-size: cover;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 25px;
+    display: flex;
+
+  }
+
+  .card span {
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+    font-size: 16px;
+  }
+
+  .card-inner {
+    width: inherit;
+    height: inherit;
+    background: rgba(255, 255, 255, .05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+  }
+
+  .card:hover {
+    transform: scale(1.04) rotate(1deg);
+  }
+
+  .circle {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(#b0e633, #53ef7d);
+    border-radius: 50%;
+    position: absolute;
+    animation: move-up6 2s ease-in infinite alternate-reverse;
+  }
+
+  .circle:nth-child(1) {
+    top: -25px;
+    left: -25px;
+  }
+
+  .circle:nth-child(2) {
+    bottom: -50px;
+    right: -25px;
+    animation-name: move-down1;
+  }
+
+  @keyframes move-up6 {
+    to {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes move-down1 {
+    to {
+      transform: translateY(10px);
+    }
+  }
+
+  ////////
+  .home_sec {
+    height: 100vh;
+  }
+
+  .about-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form {
+    --input-text-color: #fff;
+    --input-bg-color: transparent;
+    --focus-input-bg-color: transparent;
+    --text-color: white;
+    --active-color: #2A8736;
+    --width-of-input: 500px;
+    --inline-padding-of-input: 1.2em;
+    --gap: 0.9rem;
+    display: flex;
+    justify-content: center;
+    border: 3px solid #2A8736;
+
+    /* form style */
+    font-size: 0.9rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: var(--width-of-input);
+    position: relative;
+    isolation: isolate;
+    border-radius: 50px;
+
+    /* a fancy bg for showing background and border when focus. */
+    .fancy-bg {
+      position: absolute;
+      width: 100%;
+      inset: 0;
+      background: var(--input-bg-color);
+      border-radius: 30px;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    /* label styling */
+    label {
+      width: 100%;
+      padding: 0.8em;
+      height: 40px;
+      padding-inline: var(--inline-padding-of-input);
+      display: flex;
+      align-items: center;
+    }
+
+    .search,
+    .close-btn {
+      position: absolute;
+    }
+
+    /* styling search-icon */
+    .search {
+      fill: var(--text-color);
+      left: var(--inline-padding-of-input);
+    }
+
+    /* svg -- size */
+    svg {
+      width: 17px;
+      display: block;
+    }
+
+    /* styling of close button */
+    .close-btn {
+      border: none;
+      right: var(--inline-padding-of-input);
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 0.1em;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--active-color);
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    /* styling of input */
+    .input {
+      color: var(--input-text-color);
+      width: 100%;
+      background: none;
+      border: none;
+    }
+
+
+    #search::placeholder {
+      padding: 10px;
+      margin: 10px;
+    }
+
+    input::placeholder {
+      padding: 10px;
+      margin: 10px;
+    }
+
+    .input:focus {
+      outline: none;
+    }
+
+    .input::placeholder {
+      color: var(--text-color);
+    }
+
+    /* input background change in focus */
+    .input:focus~.fancy-bg {
+      border: 1px solid var(--active-color);
+      background: var(--focus-input-bg-color);
+    }
+
+    /* search icon color change in focus */
+    .input:focus~.search {
+      fill: var(--active-color);
+    }
+
+    /* showing close button when typing */
+    .input:valid~.close-btn {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* this is for the default background in input,when selecting autofill options -- you can remove this code if you do not want to override the browser style.  */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+      -webkit-transition-delay: 9999s;
+    }
+  }
+
+  .searAyman {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .btn {
+    border: none;
+    width: 15em;
+    height: 5em;
+    border-radius: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #09270f;
+    cursor: pointer;
+    transition: all 450ms ease-in-out;
+
+    .sparkle {
+      fill: #AAAAAA;
+      transition: all 800ms ease;
+    }
+
+    .text {
+      font-weight: 600;
+      color: #AAAAAA;
+      font-size: medium;
+    }
+
+    &:hover {
+      background: linear-gradient(0deg, #7cf3ac, #45ea3f);
+      box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+        0px 0px 180px 0px #17ff36;
+      transform: translateY(-2px);
+
+      .text {
+        color: white;
+      }
+
+      .sparkle {
+        fill: white;
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    max-width: fit-content;
+
+  }
+
+  @media screen and (max-width: 500px) {
+    max-width: fit-content;
+
+  }
+
+  // Remove the closing curly brace without a corresponding selector or at-rule
+  .homeMidTop {
+    -webkit-box-shadow: inset 0 0 200px 20px #000;
+    box-shadow: inset 0 0 200px 20px #000;
+    border-top: 8px solid #121212;
+    color: #fff;
+    margin-top: -8px;
+    width: 100%;
+    min-height: 140px;
+    padding-bottom: 30px;
+    padding-top: 15px;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, .05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+  }
+
+}

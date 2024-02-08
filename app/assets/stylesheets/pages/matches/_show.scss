@@ -1,0 +1,114 @@
+
+#match{
+  margin-top: 10px;
+  display:flex;
+  justify-content: center;
+
+  .player-lobby-image{
+
+    width: 400px;
+    height: 600px;
+
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    .goalkeeper{
+      margin-top: 45px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .defense{
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .avatar{
+        margin: 0 50px;
+      }
+    }
+    .midfield{
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .attack{
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .avatar{
+    background-color: #202c2b;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  .player-lobby-list{
+    width: 350px;
+    height: 600px;
+    background-color: #202c2b;
+
+    .lobby-container{
+      margin: 30px 10px 20px;
+      .green-link{
+        background: none;
+        border: none;
+        justify-content: center;
+        text-decoration: none;
+        color: rgba(88, 202, 100, 1);
+        font-size: 16px;
+        padding-bottom: 0 ;
+        transition: all 0.3s ease 0s;
+      }
+
+      .green-link:hover{
+        color: rgba(88, 202, 100, 0.8);
+      }
+    }
+
+    h4{
+      color: #58CA64;
+      padding: 5px;
+    }
+
+    .first-team, .second-team {
+      margin: 0 10px;
+      div{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 5px;
+
+        p{
+          color: aliceblue;
+          font-size: 18px;
+        }
+        p:empty {
+          padding: 14px;
+        }
+        a{
+          text-decoration: none;
+          color: red;
+          font-size: 16px;
+          padding-bottom: 0 ;
+
+        }
+
+      }
+
+
+    }
+
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    .player-lobby-list{
+      width: 400px;
+    }
+  }
+}

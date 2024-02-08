@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+#navbar{
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #202c2b;
+
+  }
+  header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 40px;
+    li,a, button{
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #edf0f1;
+      text-decoration: none;
+    }
+
+    .logo{
+      margin-top: 5px;
+      margin-right: auto;
+      cursor: pointer;
+      width: 160px;
+      height: 60px;
+    }
+
+
+
+    .profile_link{
+      list-style: none;
+      .sub-menu{
+        display: none;
+        .nav_links{
+          list-style: none;
+          li{
+            button, input[type="submit"], input[type="reset"] {
+              background: none;
+              color: inherit;
+              border: none;
+              padding: 0;
+              margin: 0;
+              font: inherit;
+              cursor: pointer;
+              outline: inherit;
+            }
+            // display: block;
+            padding: 0px 20px;
+            .element{
+              text-align: center;
+            }
+            .element, .logout{
+              transition: all 0.3s ease 0s;
+            }
+            .element:hover{
+              color: #58ca64;
+            }
+            .logout:hover{
+              color: red;
+            }
+
+
+
+
+          }
+
+        }
+
+      }
+      li:hover{
+        .sub-menu{
+          display: block;
+          position: absolute;
+          background-color: #202c2b;
+          padding: 10px 20px;
+          border-radius: 10px;
+          margin-top: 2px;
+          margin-left: -60px;
+          // margin-right: 140px;
+          box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+          li{
+            padding: 10px 0px;
+            a{
+              color: #edf0f1;
+            }
+          }
+        }
+      }
+    }
+
+  }
+  button{
+    margin-left: 20px;
+    padding: 15px 25px;
+    background-color: rgba(42, 135, 54 , 1);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  }
+
+  button:hover{
+    background-color: rgba(42, 135, 54 , 0.8);
+  }
+  .avatar{
+    margin-left: 5px;
+  }
+}
