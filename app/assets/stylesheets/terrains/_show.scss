@@ -1,35 +1,254 @@
 #terrain  {
-  *{
-    border: red 1px solid;
+  h2{
+    margin-left: 5px;
+    color: #58CA64;
   }
-  .terrain-container{
-  min-width: 327px;
-  margin: 10px auto;
-  background-color: #202c2b;
-    h2{
-      margin-left: 5px;
-      color: #2A8736;
-    }
-    p{
-      margin-left: 5px;
-      color: white;
-    }
-    .terrain {
-      max-height: 600px;
 
-      .terrain-image {
-        margin-top: 10px;
-        width: 100%;
-        height: 397px;
-        img {
-          margin-top: 10px;
-          margin-left: 70px;
-          width: 80%;
-          height: auto;
+
+  .terrain-games-container{
+    min-width: 327px;
+    max-width: 990px;
+    margin: 10px auto;
+    background-color: #202c2b;
+    .terrain-container{
+      min-width: 327px;
+      max-width: 990px;
+      margin: 10px auto;
+      background-color: #202c2b;
+
+        p{
+          margin-left: 5px;
+          color: white;
+        }
+        .terrain {
+          max-height: 600px;
+          display: flex;
+
+          .terrain-image {
+            flex: 1;
+            margin: 10px;
+            width: 100%;
+            height: 397px;
+            background-image: url('https://www.sportomaroc.ma/images/uploads/clubs/medium/football-casablanca-sportomaroc%20(8).jpg');
+            background-size: cover;
+          }
+          .terrain-info {
+            flex: 0.75;
+            margin-top: 10px;
+            padding: 10px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .openinghours {
+
+            font-family:Lucida Console;
+            border-radius:4px;
+            margin:10px;
+            box-shadow: 0 0 10px black;
+            padding:0 10px 0 10px;
+            #terrain {
+              * {
+                border: red 1px solid;
+              }
+              .terrain-container {
+                min-width: 327px;
+                margin: 10px auto;
+                background-color: #202c2b;
+                h2 {
+                  margin-left: 5px;
+                  color: #2A8736;
+                }
+                p {
+                  margin-left: 5px;
+                  color: white;
+                }
+                .terrain {
+                  max-height: 600px;
+                  display: flex;
+                  .terrain-image {
+                    flex: 1;
+                    margin-top: 10px;
+                    width: 100%;
+                    height: 397px;
+                    background-image: url('https://www.sportomaroc.ma/images/uploads/clubs/medium/football-casablanca-sportomaroc%20(8).jpg');
+                    background-size: cover;
+                  }
+                  .terrain-info {
+                    flex: 1;
+                    margin-top: 10px;
+                    padding: 10px;
+                    color: white;
+                    h3 {
+                      color: #2A8736;
+                    }
+                    p {
+                      margin-top: 10px;
+                    }
+                  }
+                  .openinghours {
+                    font-family: Lucida Console;
+                    border-radius: 4px;
+                    margin: 10px;
+                    box-shadow: 0 0 10px black;
+                    padding: 0 10px 0 10px;
+                  }
+                }
+              }
+            }
+
+            .openinghourscontent {
+              display: inline-block;
+            }
+            .openinghourscontent {
+              float: left;
+            }
+            .openinghourscontent h2 {
+              display: block;
+              text-align: center;
+              margin-top: 0.33em;
+            }
+            .openinghourscontent button {
+              color: white;
+              font-family: Courier New;
+              font-size: large;
+              font-weight: bolder;
+              background-color: #4679BD;
+              border-radius: 4px;
+              width: 100%;
+              margin-bottom: 10px;
+            }
+            .today {
+              color: #8AC007;
+            }
+            .opening-hours-table tr td:first-child {
+              font-weight: bold;
+            }
+            #open-status {
+              display: block;
+              margin-top: -1em;
+              text-align: center;
+              border: dotted lightgrey 3px;
+            }
+            .openorclosed:after {
+              content: " open during these hours:";
+            }
+            .open {
+              color: green;
+            }
+            .open:after {
+              content: " Open";
+              color: #6C0;
+            }
+            .closed:after {
+              content: " Closed";
+              color: red;
+            }
+            .opening-hours-table tr td {
+              padding: 5px;
+            }
+
+            #terrain {
+              overflow: hidden;
+            }
+            display: inline-block;
+        }
+        .openinghourscontent {
+            float:left;
+        }
+        .openinghourscontent h2 {
+            display:block;
+            text-align:center;
+            margin-top:.33em;
+        }
+        .openinghourscontent button {
+            color:white;
+            font-family:Courier New;
+            font-size:large;
+            font-weight:bolder;
+            background-color:#4679BD;
+            border-radius:4px;
+            width:100%;
+            margin-bottom:10px;
+        }
+        .today {
+            color: #8AC007;
+        }
+        .opening-hours-table tr td:first-child {
+            font-weight:bold;
+        }
+        #open-status {
+            display:block;
+            margin-top:-1em;
+            text-align:center;
+            border:dotted lightgrey 3px;
+        }
+        .openorclosed:after {
+            content:" open during these hours:";
+        }
+        .open {
+            color:green;
+        }
+        .open:after {
+            content:" Open";
+            color: #6C0;
+        }
+        .closed:after {
+            content:" Closed";
+            color: red;
+        }
+        .opening-hours-table tr td {
+            padding:5px;
+        }
+        }
+
+      }
+    .match{
+      margin: 10px;
+      display: flex;
+    }
+    .terrain-games{
+      margin-top: 50px;
+      .match{
+        padding: 5px 20px;
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        border-radius: 20px;
+        p{
+          color: white;
+        }
+        a{
+          color: #58CA64;
+          text-decoration: none;
         }
       }
     }
+  }
 
-}
+  @media screen and (max-width: 814px) {
+      .terrain {
+        flex-direction: column;
+        .terrain-info {
+          padding: 5px;
+        }
+        .terrain-image {
+          height: 200px;
+        }
 
+  }
+  }
+
+  @media screen and (min-width: 1400px) {
+    .terrain-container{
+      min-width: 327px;
+      max-width: 1800px;
+    }
+
+    .terrain{
+      max-height: 900px;
+    }
+  }
 }
