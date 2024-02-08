@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get '/users/sign_up', to: redirect('/404')  # Redirect to a 404 page or any other desired page
-
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: "users/sessions",
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
   }
 
 
+  
   devise_scope :user do
     get 'complete_information', to: 'registrations#complete_information'
   end
