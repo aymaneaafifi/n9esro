@@ -1,4 +1,5 @@
 
+    <%= turbo_stream_from "online_users", channel: OnlineChannel %>
 
 <div id="showAyoub">
 
@@ -13,8 +14,18 @@
             <% else %>
               <%= image_tag "football_icon.png", class: "avatar" %>
             <% end %>
-            <span style="color: <%= @online ? '#2afa6a' : 'red' %>;"></span>
 
+
+
+
+
+
+
+            <% if @users.pluck(:id).include?(params[:id].to_i) %>
+              <span class="online"></span>
+            <% else %>
+              <span class="offline"></span>
+            <% end %>
           </div>
           <h2><%= @user.first_name %> <%= @user.last_name %></h2>
           <p>Football player</p>
@@ -25,6 +36,7 @@
             <li><span>27</span>Played </li>
             <li><span>7</span>Cancelled </li>
             <li><span>2</span>Pending </li>
+
 
           </ul>
 

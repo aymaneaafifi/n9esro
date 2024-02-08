@@ -11,11 +11,11 @@
 
 
 
-
     <%= javascript_importmap_tags %>
   </head>
 
   <body style="background-color: #202c2b">
+
     <% unless controller.is_a?(Devise::SessionsController) && action_name == 'new' || controller.is_a?(RegistrationsController) && action_name == 'complete_information'%>
       <%= render "shared/navbar" %>
     <% end %>

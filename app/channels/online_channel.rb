@@ -1,10 +1,25 @@
 class OnlineChannel < Turbo::StreamsChannel
   def subscribed
-    current_user&.update!(status: "online", last_online: Time.current)
     super
+    return unless current_user
+    users_online = Kredis.unique_list "users_online"
+    users_online << current_user.id
+    Turbo::StreamsChannel.broadcast_prepend_to(
+      verified_stream_name_from_params,
+      target: 'users-list',
+      partial: 'users/show',
+      locals: { user: current_user }
+    )
+    # binding.b
   end
+
   def unsubscribed
-    current_user&.update!(status: "offline")
-    super
+    return unless current_user
+    users_online = Kredis.unique_list "users_online"
+    users_online.remove current_user.id
+    Turbo::StreamsChannel.broadcast_remove_to(
+      verified_stream_name_from_params,
+      target: "user_#{current_user.id}"
+    )
   end
 end
