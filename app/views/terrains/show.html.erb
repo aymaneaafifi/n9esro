@@ -1,12 +1,83 @@
 <div id="terrain">
+
+
+  <%# the available games %>
+  <div class="terrain-games-container">
   <div class="terrain-container">
     <h2> <%= @terrain.name%></h2>
-    <p><i class="fa-light fa-location-dot"></i> <%= @terrain.address%></p>
     <div class="terrain">
       <div class="terrain-image">
-        <img src="https://www.sportomaroc.ma/images/uploads/clubs/medium/football-casablanca-sportomaroc%20(8).jpg" alt="" >
+      </div>
+      <div class="terrain-info">
+        <p><i class="fa-solid fa-money-bill"></i> <%= @terrain.price%> MAD</p>
+        <section class="openinghours">
+          <div class="openinghourscontent section">
+            <div class="header">
+              <h2>Opening hours</h2>
+              <span><small class="openorclosed">We are</small></span>
+            </div>
+            <table class="opening-hours-table">
+              <tr id="Monday" itemprop="openingHours">
+                <td>Monday</td>
+                <td class="opens">09:00</td>
+                <td>-</td>
+                <td class="closes">18:00</td>
+              </tr>
+              <tr id="Tuesday" itemprop="openingHours" >
+                <td>Tuesday</td>
+                <td class="opens">09:00</td>
+                <td>-</td>
+                <td class="closes">23:00</td>
+              </tr>
+              <tr id="Wednesday" itemprop="openingHours" >
+                <td>Wednesday</td>
+                <td class="opens">09:00</td>
+                <td>-</td>
+                <td class="closes">23:00</td>
+              </tr>
+              <tr id="Thursday" itemprop="openingHours" >
+                <td>Thursday</td>
+                <td class="opens">09:00</td>
+                <td>-</td>
+                <td class="closes">23:00</td>
+              </tr>
+              <tr id="Friday" itemprop="openingHours" >
+                <td>Friday</td>
+                <td class="opens">09:00</td>
+                <td>-</td>
+                <td class="closes">22:00</td>
+              </tr>
+              <tr id="Saturday" itemprop="openingHours" >
+                <td>Saturday</td>
+                <td class="opens">10:00</td>
+                <td>-</td>
+                <td class="closes">23:00</td>
+              </tr>
+              <tr id="Sunday" itemprop="openingHours">
+                <td>Sunday</td>
+                <td class="opens">11:00</td>
+                <td>-</td>
+                <td class="closes">22:00</td>
+              </tr>
+            </table>
+          </div>
+        </section>
       </div>
     </div>
-  </div>
 
+  </div>
+    <div class="master" data-controller="date-navigation">
+      <h2>Available Matches</h2>
+    </div>
+    <article class="terrain-games">
+      <% @terrain.matches.each do |game| %>
+        <div class="match">
+          <%= cl_image_tag game.user.photo.key, class: "avatar" %>
+          <p><%=game.user.first_name%> <%=game.user.last_name%></p>
+          <p><%= game.date %></p>
+          <%= link_to "Details", terrain_match_path(@terrain)%>
+        </div>
+        <%end%>
+    </article>
+  </div>
 </div>
