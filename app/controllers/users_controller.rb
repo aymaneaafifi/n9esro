@@ -7,9 +7,8 @@
 class UsersController < ApplicationController
     def show
       # users connected
-      @users = Connect.first.connected
-
-
+      @users = []
+      @users = Connect.first.connected if Connect.first
 
       #
       id = params[:id]

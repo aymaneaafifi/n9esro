@@ -66,7 +66,7 @@ class Users::SessionsController < Devise::SessionsController
     OnlineChannel.broadcast_to(
       "connected",
       Connect.first.connected.to_json
-    )
+    ) if Connect.first
     super
   end
 

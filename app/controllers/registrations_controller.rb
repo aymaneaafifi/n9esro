@@ -24,6 +24,18 @@ class RegistrationsController < Devise::RegistrationsController
         return
       end
 
+      users_online = Connect.first
+      Connect.create(connected: [resource.id]) if users_online.blank?
+      unless users_online.blank?
+        users_online.connected << resource.id
+        Connect.first.update(connected: users_online.connected.uniq )
+      end
+
+      OnlineChannel.broadcast_to(
+        "connected",
+        Connect.first.connected.to_json
+      )
+
     end
   end
 
