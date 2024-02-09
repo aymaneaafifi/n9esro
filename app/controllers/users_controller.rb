@@ -6,6 +6,12 @@
 
 class UsersController < ApplicationController
     def show
+      # users connected
+      @users = Connect.first.connected
+
+
+
+      #
       id = params[:id]
       @user = User.find(params[:id])
       @matches = Match.where(user_id: id)
@@ -14,5 +20,5 @@ class UsersController < ApplicationController
 
 
     end
-    
+
 end

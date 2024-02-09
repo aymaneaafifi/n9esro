@@ -9,7 +9,7 @@
     <%# if user signed_in %>
     <% if user_signed_in? %>
       <%# <a href="#" class="cta"><button>Create Game</button></a> %>
-      <ul class="profile_link">
+      <ul class="profile_link" data-controller="connect">
         <li>
         <a href="" class="avatar">
             <%= cl_image_tag current_user.photo.key, class: "avatar" %>

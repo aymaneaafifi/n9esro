@@ -38,6 +38,17 @@ class Users::SessionsController < Devise::SessionsController
         redirect_to new_user_session_path, notice: "invalid password"
           return
       end
+      users_online = Connect.first
+      Connect.create(connected: [userByEmail.id]) if users_online.blank?
+      unless users_online.blank?
+        users_online.connected << userByEmail.id
+        Connect.first.update(connected: users_online.connected.uniq )
+      end
+
+      OnlineChannel.broadcast_to(
+        "connected",
+        Connect.first.connected.to_json
+      )
       super
     else
       redirect_to new_user_session_path, notice: "invalid email"
@@ -45,7 +56,18 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def destroy
-    super
     cookies.delete(:user_id)
+    users_online = Connect.first
+    unless users_online.blank?
+      users_online.connected.delete current_user.id
+      Connect.first.update(connected: users_online.connected.uniq )
+    end
+
+    OnlineChannel.broadcast_to(
+      "connected",
+      Connect.first.connected.to_json
+    )
+    super
   end
+
 end
