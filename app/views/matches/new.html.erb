@@ -1,62 +1,44 @@
-
-
-
-
-
 <div id="create_match">
-  <div data-controller="matches" >
+  <div data-controller="matches">
 
     <%= simple_form_for @match do |f| %>
 
+      <%= f.label :title %>
+      <%= f.text_field :title, error: false %>
+      <%= f.error :title, class: "error" %>
 
+      <%= f.label :description %>
+      <%= f.text_area :description, error: false %>
+      <%= f.error :description, class: "error" %>
 
+      <%= f.input :date,
+                  as: :string,
+                  input_html: { data: { controller: "datepicker" } } %>
+      <%= f.error :date, class: "error" %>
 
+      <%#  f.label :team, "Select Team" %>
+      <%# f.select :team, [["Team 1", "team1"], ["Team 2", "team2"]], {}, { class: "form-control" } %>
 
-          <%= f.label :title %>
-          <%= f.text_field :title, error: false  %>
-          <%= f.error :title, class: "error" %>
+      <%# f.label :position, "Select your Position" %>
+      <%# f.select :position, UserTeam.positions.keys.map { |position| [position, position] }, {}, { class: "form-control" } %>
 
+      <%# for terrains %>
 
-          <%= f.label :description %>
-          <%= f.text_area :description, error: false %>
-          <%= f.error :description, class: "error" %>
+      <label for="match_address">Terrain address</label>
+      <select id="match_address" name="address" data-action="change->matches#loadTerrainNames" data-target="matches.address">
+        <% @terrainAddress.uniq.each do |address| %>
+          <option value="<%= address %>"><%= address %></option>
+        <% end %>
+      </select>
+      <%= f.error :address, class: "error" %>
 
-          <%= f.input :date,
-                      as: :string,
-                      input_html: { data: { controller: "datepicker" } }
+      <label for="match_name">Terrain name</label>
+      <select id="match_name" name="terrain" data-target="matches.name">
+        <%= f.error :terrain, class: "error" %>
+      </select>
 
-          %>
-          <%= f.error :date, class: "error" %>
-
-
-
-
-          <%# for terrains %>
-
-            <label for="match_address">Terrain address</label>
-            <select id="match_address" name="address" data-action="change->matches#loadTerrainNames" data-target="matches.address">
-              <% @terrainAddress.uniq.each do |address| %>
-                <option value="<%= address %>"><%= address %></option>
-              <% end %>
-            </select>
-            <%= f.error :address, class: "error" %>
-
-
-
-            <label for="match_name">Terrain name</label>
-              <select id="match_name" name="terrain" data-target="matches.name">
-            <%= f.error :terrain, class: "error" %>
-
-
-
-          </select>
-
-
-            <%= f.submit %>
-      </div>
-
+      <%= f.submit %>
+    </div>
 
     <% end %>
-  </div>
-
 </div>

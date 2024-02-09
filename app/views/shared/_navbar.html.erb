@@ -1,26 +1,24 @@
 <div id="navbar">
   <header >
-    <%= image_tag "logo.png", class: "logo", alt: "the logo of n9asro" %>
+    <%= link_to root_path do %>
+      <%= image_tag "logo.png", class: "logo", alt: "the logo of n9asro" %>
+    <% end %>
     <nav>
 
     </nav>
     <%# if user signed_in %>
     <% if user_signed_in? %>
       <%# <a href="#" class="cta"><button>Create Game</button></a> %>
-      <ul class="profile_link">
+      <ul class="profile_link" data-controller="connect">
         <li>
         <a href="" class="avatar">
-          <% if current_user.photo.present? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-          <% else %>
-            <%= image_tag "football_icon.png", class: "avatar" %>
-          <% end %>
+          <%#  %>
         </a>
             <div class="sub-menu">
               <ul class="nav_links">
-                <li><a href="#" class="element">Notifications</a></li>
-                <li><a href="#" class="element">Messages</a></li>
-                <li><a href="#" class="element">Dashboard</a></li>
+                <li><%= link_to "Profile", user_path(current_user)%></li>
+                <li><%= link_to "Edit Profile", edit_user_registration_path%></li>
                 <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: "logout" %></li>
               </ul>
             </div>

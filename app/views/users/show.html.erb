@@ -1,18 +1,30 @@
 
+    <%# turbo_stream_from "online_users", channel: OnlineChannel %>
 
-<div id="show">
+<div id="showAyoub">
+
  <div class="header__wrapper" data-controller="users">
       <header></header>
 
       <div class="cols__container">
         <div class="left__col">
-          <div class="img__container">
-            <img src="https://tse2.mm.bing.net/th?id=OIP.-qBxge27DGxizFWrAuMq_wHaJ4&pid=Api&P=0&h=180" alt="Ayoub idbaih" />
-            <span></span>
+          <div class="img__container" >
+            <% if @user.photo.present? %>
+            <%= cl_image_tag @user.photo.key, class: "avatar" %>
+            <% else %>
+              <%= image_tag "football_icon.png", class: "avatar" %>
+            <% end %>
+
+            <%= @users %>
+
+
+              <span id="point1" class="point <%=  @users.include?(params[:id].to_i) ? 'online' : 'offline' %> "></span>
+              <span id="userid"> <%= params[:id] %></span>
+
           </div>
           <h2><%= @user.first_name %> <%= @user.last_name %></h2>
           <p>Football player</p>
-          <p>aayoub@example.com</p>
+          <p><%= @user.email %></p>
         <br>
           <h1 style="color: white;">Matches History</h1>
           <ul class="about">
@@ -20,11 +32,12 @@
             <li><span>7</span>Cancelled </li>
             <li><span>2</span>Pending </li>
 
+
           </ul>
 
           <div class="content">
             <p>
-                With a passion for the sport and a determination to learn and grow, Alex approaches each training session with eagerness and a willingness to absorb new skills.
+              <%= @user.bio %>
             </p>
 
             <ul>
@@ -56,7 +69,7 @@
                     <% @teams.each do |team| %>
                     <div class="card-header" style="color: white;">
                         <div class="row">
-                            <div class="col"><a href="#"><%= team.match.title %></a></div>
+                            <div class="col"><a href="#" style="color: white;"><%= team.match.title %></a></div>
                             <div class="col"><%= team.match.date %></div>
                             <div class="col">
                                 Scheduled
@@ -83,7 +96,7 @@
                   <% @matches.each do |match| %>
                   <div class="card-header" style="color: white;">
                       <div class="row">
-                        <div class="col"><a href="#"><%= match.address %></a></div>
+                        <div class="col"><a href="#" style="color: white;"><%= match.title %></a></div>
                           <div class="col"><%= match.date %></div>
                           <div class="col">
                             <% if match.date < DateTime.now %>

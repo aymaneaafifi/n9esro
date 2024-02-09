@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_one_attached :photo
+  
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -11,6 +13,14 @@ class User < ApplicationRecord
   has_many :teams , through: :user_teams
   # validates :first_name , presence: true
   # validates :last_name , presence: true
+
+
+  # def online?
+  #   status == "online"
+  # end
+  # def offline
+  #   !online?
+  # end
 
   def self.from_google(u)
     create_with(uid: u[:uid], provider: 'google',

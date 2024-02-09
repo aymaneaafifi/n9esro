@@ -10,10 +10,10 @@
   }
   header{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
-    li,a, button{
+    li, a, button{
       font-family: "Montserrat", sans-serif;
       font-weight: 500;
       font-size: 16px;
@@ -62,9 +62,6 @@
             .logout:hover{
               color: red;
             }
-
-
-
 
           }
 
