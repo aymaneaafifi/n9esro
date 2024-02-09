@@ -47,12 +47,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_08_110343) do
     t.text "description"
     t.datetime "date"
     t.bigint "terrain_id", null: false
-    t.bigint "organizer_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "address"
-    t.index ["organizer_id"], name: "index_matches_on_organizer_id"
     t.index ["terrain_id"], name: "index_matches_on_terrain_id"
+    t.index ["user_id"], name: "index_matches_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -106,7 +106,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_08_110343) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "matches", "terrains"
-  add_foreign_key "matches", "users", column: "organizer_id"
+  add_foreign_key "matches", "users"
   add_foreign_key "teams", "matches"
   add_foreign_key "user_teams", "teams"
   add_foreign_key "user_teams", "users"
