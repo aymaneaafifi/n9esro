@@ -48,9 +48,19 @@
             box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.18);
           }
 
-          span {
+          .online {
             position: absolute;
             background: #2afa6a;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            bottom: 3px;
+            right: 11px;
+            border: 2px solid #fff;
+          }
+          .offline {
+            position: absolute;
+            background: red;
             width: 16px;
             height: 16px;
             border-radius: 50%;

@@ -5,3 +5,5 @@ import "@popperjs/core"
 import "bootstrap"
 // import "@rails/actioncable"
 import "channels"
+import "@rails/actioncable"
+
