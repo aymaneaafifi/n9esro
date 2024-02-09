@@ -20,8 +20,10 @@
     <% unless controller.is_a?(Devise::SessionsController) && action_name == 'new' || controller.is_a?(RegistrationsController) && action_name == 'complete_information'%>
       <%= render "shared/navbar" %>
     <% end %>
+
       <div class="container">
         <%= yield %>
+
       </div>
        <div class="mx-auto p-5">
         <% if flash[:notice] %>
@@ -33,5 +35,7 @@
         <% end %>
         </div>
       </div>
+      <%= render "shared/footer" %>
+
   </body>
 </html>
