@@ -16,21 +16,22 @@
 
   <body style="background-color: #202c2b">
 
+
     <% unless controller.is_a?(Devise::SessionsController) && action_name == 'new' || controller.is_a?(RegistrationsController) && action_name == 'complete_information'%>
       <%= render "shared/navbar" %>
     <% end %>
-
-      <div class="container mx-auto p-5">
-      <% if flash[:notice] %>
-        <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-        <span style="color:white;"><strong>Yay!</strong> 🎉 <%= flash[:notice] %></span>
-        <a data-bs-dismiss="alert" aria-label="Close" style="color:white;">
-          <i class="fas fa-times"></i>
-        </a>
-      </div>
-      <% end %>
-
+      <div class="container">
         <%= yield %>
+      </div>
+       <div class="mx-auto p-5">
+        <% if flash[:notice] %>
+          <div class="flash flash-success alert alert-dismissible fade show" role="alert" style = "background-color: #202c2b;">
+          <span style="color:white;"><%= flash[:notice] %></span>
+          <a data-bs-dismiss="alert" aria-label="Close" style="color:white;">
+            <i class="fas fa-times"></i>
+          </a>
+        <% end %>
+        </div>
       </div>
   </body>
 </html>

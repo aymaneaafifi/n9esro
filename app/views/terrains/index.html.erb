@@ -3,10 +3,7 @@
       <div class="search container">
 
       </div>
-
-
-
-      <% @terrains.each do |terrain| %>
+     <% @terrains.each do |terrain| %>
       <div class="plan">
         <div class="inner">
           <span class="pricing">
@@ -21,13 +18,10 @@
           </div>
           <p class="info" style="color: white;height:200px;overflow:hidden;"><%= terrain.desc %></p>
           <div class="action">
-          <a class="button" href="#">
-            visit
-          </a>
+          <%= link_to "visit", terrain_path(terrain), class: "button"%>
           </div>
         </div>
       </div>
       <% end %>
-
 
   </div>
