@@ -75,7 +75,7 @@
           <%= cl_image_tag game.user.photo.key, class: "avatar" %>
           <p><%=game.user.first_name%> <%=game.user.last_name%></p>
           <p><%= game.date %></p>
-          <%= link_to "Details", terrain_match_path(@terrain)%>
+          <%= link_to "Details", terrain_match_path(@terrain, game) %>
         </div>
         <%end%>
     </article>

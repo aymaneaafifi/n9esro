@@ -1,83 +1,146 @@
 <div id="match" data-controller="join" data-join-id-value='<%= current_user.id %>' data-join-team1-value='<%= @team1.id %>' data-join-team2-value='<%= @team2.id %>'>
     <div class="player-lobby-image" style="background-image: url('<%= image_path('field.jpg') %>');">
       <%# team 1 %>
-      <div class="goalkeeper">
-      <% if @team1.user_teams.exists?(position: "GK") %>
-          <% player = @team1.user_teams.find_by(position: "GK").user %>
+     <!-- For Team 1 -->
+
+<!-- Goalkeeper -->
+  <div class="goalkeeper">
+    <% if @team1.user_teams.exists?(position: "GK") %>
+      <% user_team = @team1.user_teams.find_by(position: "GK") %>
+      <% if user_team && user_team.user %>
+        <% player = user_team.user %>
+        <%= cl_image_tag player.photo.key, class: "avatar" %>
+      <% else %>
+        <div class="avatar"></div>
+      <% end %>
+    <% else %>
+      <div class="avatar"></div>
+    <% end %>
+  </div>
+
+  <!-- Defense -->
+  <div class="defense">
+    <% if @team1.user_teams.exists?(position: "DF1") %>
+      <% user_team = @team1.user_teams.find_by(position: "DF1") %>
+      <% if user_team && user_team.user %>
+        <% player = user_team.user %>
+        <%= cl_image_tag player.photo.key, class: "avatar" %>
+      <% else %>
+        <div class="avatar"></div>
+      <% end %>
+    <% else %>
+      <div class="avatar"></div>
+    <% end %>
+
+    <% if @team1.user_teams.exists?(position: "DF2") %>
+      <% user_team = @team1.user_teams.find_by(position: "DF2") %>
+      <% if user_team && user_team.user %>
+        <% player = user_team.user %>
+        <%= cl_image_tag player.photo.key, class: "avatar" %>
+      <% else %>
+        <div class="avatar"></div>
+      <% end %>
+    <% else %>
+      <div class="avatar"></div>
+    <% end %>
+  </div>
+
+  <!-- Midfield -->
+  <div class="midfield">
+    <% if @team1.user_teams.exists?(position: "MD") %>
+      <% user_team = @team1.user_teams.find_by(position: "MD") %>
+      <% if user_team && user_team.user %>
+        <% player = user_team.user %>
+        <%= cl_image_tag player.photo.key, class: "avatar" %>
+      <% else %>
+        <div class="avatar"></div>
+      <% end %>
+    <% else %>
+      <div class="avatar"></div>
+    <% end %>
+  </div>
+
+  <!-- Attack -->
+  <div class="attack">
+    <% if @team1.user_teams.exists?(position: "ATK") %>
+      <% user_team = @team1.user_teams.find_by(position: "ATK") %>
+      <% if user_team && user_team.user %>
+        <% player = user_team.user %>
+        <%= cl_image_tag player.photo.key, class: "avatar" %>
+      <% else %>
+        <div class="avatar"></div>
+      <% end %>
+    <% else %>
+      <div class="avatar"></div>
+    <% end %>
+  </div>
+
+
+
+<%# Team 2 %>
+
+  <div class="attack">
+    <% if @team2.user_teams.exists?(position: "ATK") %>
+      <% player = @team2.user_teams.find_by(position: "ATK")&.user %>
+      <% if player %>
+        <%= cl_image_tag player.photo.key, class: "avatar" %>
+      <% else %>
+        <div class="avatar"></div>
+      <% end %>
+    <% else %>
+      <div class="avatar"></div>
+    <% end %>
+  </div>
+
+  <div class="midfield">
+    <% if @team2.user_teams.exists?(position: "MD") %>
+      <% player = @team2.user_teams.find_by(position: "MD")&.user %>
+      <% if player %>
+        <%= cl_image_tag player.photo.key, class: "avatar" %>
+      <% else %>
+        <div class="avatar"></div>
+      <% end %>
+    <% else %>
+      <div class="avatar"></div>
+    <% end %>
+  </div>
+
+  <div class="defense">
+    <% if @team2.user_teams.exists?(position: "DF1") %>
+      <% player = @team2.user_teams.find_by(position: "DF1")&.user %>
+      <% if player %>
+        <%= cl_image_tag player.photo.key, class: "avatar" %>
+      <% else %>
+        <div class="avatar"></div>
+      <% end %>
+    <% else %>
+      <div class="avatar"></div>
+    <% end %>
+
+    <% if @team2.user_teams.exists?(position: "DF2") %>
+      <% player = @team2.user_teams.find_by(position: "DF2")&.user %>
+      <% if player %>
+        <%= cl_image_tag player.photo.key, class: "avatar" %>
+      <% else %>
+        <div class="avatar"></div>
+      <% end %>
+    <% else %>
+      <div class="avatar"></div>
+    <% end %>
+  </div>
+    <div class="goalkeeper">
+      <% if @team2.user_teams.exists?(position: "GK") %>
+        <% player = @team2.user_teams.find_by(position: "GK")&.user %>
+        <% if player %>
           <%= cl_image_tag player.photo.key, class: "avatar" %>
         <% else %>
           <div class="avatar"></div>
         <% end %>
+      <% else %>
+        <div class="avatar"></div>
+      <% end %>
     </div>
-      <div class="defense">
-        <% if @team1.user_teams.exists?(position: "DF1") %>
-          <% player = @team1.user_teams.find_by(position: "DF1").user %>
-          <%= cl_image_tag player.photo.key, class: "avatar" %>
-        <% else %>
-          <div class="avatar"></div>
-        <% end %>
-       <% if @team1.user_teams.exists?(position: "DF2") %>
-          <% player = @team1.user_teams.find_by(position: "DF2").user %>
-          <%= cl_image_tag player.photo.key, class: "avatar" %>
-        <% else %>
-          <div class="avatar"></div>
-        <% end %>
-      </div>
-      <div class="midfield">
-        <% if @team1.user_teams.exists?(position: "MD") %>
-          <% player = @team1.user_teams.find_by(position: "MD").user %>
-          <%= cl_image_tag player.photo.key, class: "avatar" %>
-        <% else %>
-          <div class="avatar"></div>
-        <% end %>
-      </div>
-      <div class="attack">
-        <% if @team1.user_teams.exists?(position: "ATK") %>
-          <% player = @team1.user_teams.find_by(position: "MD").user %>
-          <%= cl_image_tag player.photo.key, class: "avatar" %>
-        <% else %>
-          <div class="avatar"></div>
-        <% end %>
-        </div>
-      <%# team 2 %>
-      <div class="attack">
-        <% if @team2.user_teams.exists?(position: "ATK") %>
-          <% player = @team2.user_teams.find_by(position: "ATK").user %>
-          <%= cl_image_tag player.photo.key, class: "avatar" %>
-        <% else %>
-          <div class="avatar"></div>
-        <% end %>
-        </div>
-      <div class="midfield">
-        <% if @team2.user_teams.exists?(position: "MD") %>
-          <% player = @team2.user_teams.find_by(position: "MD").user %>
-          <%= cl_image_tag player.photo.key, class: "avatar" %>
-        <% else %>
-          <div class="avatar"></div>
-        <% end %>
-      </div>
-      <div class="defense">
-        <% if @team2.user_teams.exists?(position: "DF1") %>
-          <% player = @team2.user_teams.find_by(position: "DF1").user %>
-          <%= cl_image_tag player.photo.key, class: "avatar" %>
-        <% else %>
-          <div class="avatar"></div>
-        <% end %>
-        <% if @team2.user_teams.exists?(position: "DF2") %>
-          <% player = @team2.user_teams.find_by(position: "DF2").user %>
-          <%= cl_image_tag player.photo.key, class: "avatar" %>
-        <% else %>
-          <div class="avatar"></div>
-        <% end %>
-      </div>
-      <div class="goalkeeper">
-        <% if @team1.user_teams.exists?(position: "GK") %>
-          <% player = @team2.user_teams.find_by(position: "GK").user %>
-          <%= cl_image_tag player.photo.key, class: "avatar" %>
-        <% else %>
-          <div class="avatar"></div>
-        <% end %>
-      </div>
+
     </div>
     <div class="player-lobby-list">
       <div class="lobby-container">

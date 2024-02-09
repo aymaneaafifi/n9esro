@@ -1,53 +1,53 @@
-# frozen_string_literal: true
+# # frozen_string_literal: true
 
-class ApplicationPolicy
-  attr_reader :user, :record
+# class ApplicationPolicy
+#   attr_reader :user, :record
 
-  def initialize(user, record)
-    @user = user
-    @record = record
-  end
+#   def initialize(user, record)
+#     @user = user
+#     @record = record
+#   end
 
-  def index?
-    false
-  end
+#   def index?
+#     false
+#   end
 
-  def show?
-    false
-  end
+#   def show?
+#     false
+#   end
 
-  def create?
-    false
-  end
+#   def create?
+#     false
+#   end
 
-  def new?
-    create?
-  end
+#   def new?
+#     create?
+#   end
 
-  def update?
-    false
-  end
+#   def update?
+#     false
+#   end
 
-  def edit?
-    update?
-  end
+#   def edit?
+#     update?
+#   end
 
-  def destroy?
-    false
-  end
+#   def destroy?
+#     false
+#   end
 
-  class Scope
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
+#   class Scope
+#     def initialize(user, scope)
+#       @user = user
+#       @scope = scope
+#     end
 
-    def resolve
-      raise NotImplementedError, "You must define #resolve in #{self.class}"
-    end
+#     def resolve
+#       raise NotImplementedError, "You must define #resolve in #{self.class}"
+#     end
 
-    private
+#     private
 
-    attr_reader :user, :scope
-  end
-end
+#     attr_reader :user, :scope
+#   end
+# end

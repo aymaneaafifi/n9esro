@@ -13,12 +13,12 @@ class User < ApplicationRecord
   # validates :last_name , presence: true
 
 
-  def online?
-    status == "online"
-  end
-  def offline
-    !online?
-  end
+  # def online?
+  #   status == "online"
+  # end
+  # def offline
+  #   !online?
+  # end
 
   def self.from_google(u)
     create_with(uid: u[:uid], provider: 'google',
