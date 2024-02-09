@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_073742) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "address"
+    t.index ["organizer_id"], name: "index_matches_on_organizer_id"
     t.index ["terrain_id"], name: "index_matches_on_terrain_id"
   end
 
