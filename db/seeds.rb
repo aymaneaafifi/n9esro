@@ -26,21 +26,29 @@ oussama.save!
 aymane.save!
 fadlallah.save!
 
-terrain1 = Terrain.create!(name: "terrain1", address: "hay salam", price: 100)
-terrain2 = Terrain.create!(name: "terrain2", address: "hay salam", price: 100)
-
+terrain1 = Terrain.create!(name: 'terrain1', address: 'hay salam', price: 100)
+terrain2 = Terrain.create!(name: 'terrain2', address: 'hay salam', price: 100)
+terrain3 = Terrain.create!(name: 'City foot Oasis', address: 'Oasis', price: 500)
+URI.open ('https://oasissportscity.ma/wp-content/uploads/2019/04/100.jpg')
+terrain4 = Terrain.create!(name: 'Atlantic FC', address: 'El Hank', price: 450-750)
+URI.open ('https://www.sportomaroc.ma/images/uploads/clubs/medium/club-football-casablanca-foot-terrains.png')
+terrain5 = Terrain.create!(name: 'Decathlon Ain Sebaa', address: 'Ain Sebaa', price: 450)
+URI.open ('https://www.sport-nature.com/wp-content/uploads/2016/06/photos-iphone-26-AOUT-2016-064.jpg')
+terrain6 = Terrain.create!(name: 'Ginga Foot', address: 'Maarif', price: 450)
+URI.open ('https://www.marocannonces.com/user_images/392/1202767.jpg')
+terrain7 = Terrain.create!(name: "L'etoile", address: 'Oasis', price: 500)
+URI.open ('https://static.yabiladi.com/files/articles/138599_95b6493e9b0932beb6afb2295322923820230407183313_thumb_565.jpg')
+terrain8 = Terrain.create!(name: 'Sidi Maarouf Foot', address: 'Sidi Maarouf', price: 150)
+URI.open ('https://rue20.com/wp-content/uploads/2022/01/casa.jpeg')
+terrain9 = Terrain.create!(name: 'Terrain Sidi Othmane', address: 'Sidi Othmane', price: 200)
+URI.open ('https://ar.hibapress.com/wp-content/uploads/2021/12/4iejR3pufBnTZlKf0ldGPAb4wS3HZDPOyaA0WhSh.jpeg?mrf-size=m')
+terrain10 = Terrain.create!(name: 'DMC foot', address: 'Derb Moulay chrif', price: 120)
+URI.open ('https://www.pjd.ma/static/uploads/2022/05/mlb_lqrb_bld_lbyd.jpg')
+terrain11 = Terrain.create!(name: 'Belvedere stadium', address: 'Belvedere', price: 300)
+URI.open ('https://i1.hespress.com/wp-content/uploads/2019/08/terrain_de_proche_924386125.jpg')
+terrain12 = Terrain.create!(name: 'Roches Noires mini-foot', address: 'Roches Noires', price: 300)
+URI.open ('https://al3omk.com/wp-content/uploads/2023/03/6427522e95fad.jpg')
 match1 = Match.create!(title: "match1", description: "matchkkjkjkj1", date: "2021-10-10", terrain: terrain1, user: oussama)
-
-
-20.times do
-  Terrain.create!(
-    name: Faker::Name.unique.name,
-    address: Faker::Address.full_address,
-    desc: Faker::Quote.matz,
-    price: rand(10..500)
-  )
-end
-
 
 team1 = Team.create!(title: "team1", match: match1)
 team2 = Team.create!(title: "team2", match: match1)

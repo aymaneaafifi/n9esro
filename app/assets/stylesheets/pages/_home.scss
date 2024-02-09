@@ -340,3 +340,63 @@
   }
 
 }
+@media (max-width: 420px){
+
+  .hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .slogan {font-size: 18px;}
+  }
+  .searAyman {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 1px;
+    margin-top: 40px;
+    margin-left: 250px;
+  }
+}
+
+@media (max-width: 960px){
+
+  .hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .slogan {
+      font-size: 18px;}
+    .input {
+      width: 10px
+    }
+    .form  {
+      width: 400px;
+      margin: auto;
+    }
+    .btn {
+      margin-top: 25px;
+      margin: auto;
+    }
+  }
+  .searAyman {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .input {
+    width: 10px
+  }
+  .form  {
+    width: 400px;
+    margin: auto;
+  }
+  .btn {
+    margin-top: 25px;
+    margin: auto;
+  }
+}
