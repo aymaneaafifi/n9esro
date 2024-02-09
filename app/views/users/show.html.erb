@@ -1,5 +1,5 @@
 
-    <%= turbo_stream_from "online_users", channel: OnlineChannel %>
+    <%# turbo_stream_from "online_users", channel: OnlineChannel %>
 
 <div id="showAyoub">
 
@@ -8,24 +8,19 @@
 
       <div class="cols__container">
         <div class="left__col">
-          <div class="img__container">
+          <div class="img__container" >
             <% if @user.photo.present? %>
             <%= cl_image_tag @user.photo.key, class: "avatar" %>
             <% else %>
               <%= image_tag "football_icon.png", class: "avatar" %>
             <% end %>
 
+            <%= @users %>
 
 
+              <span id="point1" class="point <%=  @users.include?(params[:id].to_i) ? 'online' : 'offline' %> "></span>
+              <span id="userid"> <%= params[:id] %></span>
 
-
-
-
-            <% if @users.pluck(:id).include?(params[:id].to_i) %>
-              <span class="online"></span>
-            <% else %>
-              <span class="offline"></span>
-            <% end %>
           </div>
           <h2><%= @user.first_name %> <%= @user.last_name %></h2>
           <p>Football player</p>

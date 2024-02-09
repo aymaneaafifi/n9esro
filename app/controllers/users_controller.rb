@@ -7,9 +7,9 @@
 class UsersController < ApplicationController
     def show
       # users connected
-      users_online = Kredis.unique_list "users_online"
-      @users = User.find(users_online.elements)
-      
+      @users = Connect.first.connected
+
+
 
       #
       id = params[:id]

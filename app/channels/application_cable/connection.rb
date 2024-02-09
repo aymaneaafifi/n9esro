@@ -16,5 +16,5 @@ module ApplicationCable
           nil
         end
       end
-  end
+    end
 end
