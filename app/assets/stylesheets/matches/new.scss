@@ -4,14 +4,12 @@
 #create_match {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 90vh; // Ajustez la hauteur selon vos besoins
-
 
 /* Style pour le formulaire */
   form {
-    max-width: 1000px; // Ajustez la largeur maximale selon vos besoins
-    width: 150%;
+    // max-width: 1000px; // Ajustez la largeur maximale selon vos besoins
+    width: 90%;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;

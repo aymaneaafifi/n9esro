@@ -6,7 +6,6 @@ class Team < ApplicationRecord
   validate :validate_user_join
   validate :validate_user_count
 
-
   # validates :match_id, length: { is: 2, message: "must have exactly two teams" }
   # validates :match_id, uniqueness: { message: "the team already exists" }
 

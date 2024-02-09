@@ -13,29 +13,39 @@ class MatchesController < ApplicationController
   def show
     @team1 = @match.team1
     @team2 = @match.team2
+    
   end
   # new
   def new
     @match = Match.new
     @match.date = Time.current + 1.day
-
   end
 
   def create
+    puts "Params: #{params.inspect}"
     @match = Match.new(match_params)
     @match.user = current_user
     @match.address = params[:address]
     @terrain = Terrain.find_by(name: params[:terrain], address: params[:address])
     @match.terrain = @terrain
-
-
-
-    if @match.save
-      redirect_to matches_path(@match)
+    if @terrain && @match.save
+      # team_title = params[:match][:team]
+      # puts "Team Title: #{team_title}"
+      # team = @match.send(team_title)
+      # unless team.users.include?(current_user)
+      #   user_team = UserTeam.new(user: current_user ,team: team, position: params[:match][:position])
+      #   if user_team.save
+      #     team.user_teams << user_team
+      #   else
+      #     puts user_team.errors.full_messages
+      #   end
+      # end
+      redirect_to terrain_match_path(@terrain, @match), notice: 'Match was successfully created.'
     else
-
+      flash[:error] = "Failed to create the match"
       render :new, status: :unprocessable_entity
     end
+
   end
   # update
   def edit
@@ -62,10 +72,6 @@ class MatchesController < ApplicationController
     @match.destroy
     redirect_to article_path(@match), notice: 'match was successfully destroyed.'
   end
-
-
-
-
 
   private
 

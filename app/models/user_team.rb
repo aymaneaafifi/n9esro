@@ -12,6 +12,8 @@ class UserTeam < ApplicationRecord
 
   private
   def user_has_no_team_for_same_date
+    return unless team.present? # Add a check to handle nil team object
+
     if user.teams.exists?(match_id: team.match_id)
       errors.add(:base, "The user has already a team for the same date")
     end
