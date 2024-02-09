@@ -24,7 +24,7 @@
           <div class="form">
             <div class="action">Sign in with Email</div>
 
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "sign_in_form" }) do |f| %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "sign_in_form" }, data: { turbo: false }) do |f| %>
               <div class="field form-group">
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your Email" %>
               </div>

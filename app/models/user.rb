@@ -12,6 +12,14 @@ class User < ApplicationRecord
   # validates :first_name , presence: true
   # validates :last_name , presence: true
 
+
+  def online?
+    status == "online"
+  end
+  def offline
+    !online?
+  end
+
   def self.from_google(u)
     create_with(uid: u[:uid], provider: 'google',
                 password: Devise.friendly_token[0, 20]).find_or_create_by!(email: u[:email])
